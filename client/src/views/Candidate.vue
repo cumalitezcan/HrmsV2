@@ -3,20 +3,22 @@
   <div class="container">
     <h1>Candidates</h1>
     <hr />
-    <div class="row row-cols-4">
-        <div class="col">
-            1
+    <div class="row">
+      <div class="col-12">
+        <div class="row d-flex justify-content-start">
+          <ImageCard class="me-4" />
+          <ImageCard class="me-4" />
+          <ImageCard class="me-4" />
+          <ImageCard class="me-4" />
+          <ImageCard class="me-4" />
+          <ImageCard class="me-4" />
+          <ImageCard class="me-4" />
+          <ImageCard class="me-4" />
+          
         </div>
-        <div class="col">
-            2
-        </div>
-        <div class="col">
-            3
-        </div>
-        <div class="col">
-            4
-        </div>
+      </div>
     </div>
   </div>
+  <hr />
   <Footer />
 </template>

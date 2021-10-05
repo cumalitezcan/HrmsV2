@@ -6,6 +6,12 @@ import store from './store';
 
 import navbar from "@/components/Navbar";
 import footer from "@/components/Footer";
+import card from "@/components/Card";
+import pages from "@/components/Pages";
+import pagesize from "@/components/PageSize";
+import dropdown from "@/components/Dropdown";
+import imagecard from "@/components/ImageCard";
+import employerbox from "@/components/EmployerBox";
 
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -19,6 +25,12 @@ const app = createApp(App);
 
 app.component("Navbar",navbar);
 app.component("Footer",footer);
+app.component("Card",card);
+app.component("Pages",pages);
+app.component("PageSize",pagesize);
+app.component("Dropdown",dropdown);
+app.component("ImageCard",imagecard);
+app.component("EmployerBox",employerbox);
 app.use(router);
 app.use(store);
 app.config.globalProperties.$appAxios = appAxios;
