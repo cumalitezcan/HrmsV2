@@ -17,6 +17,26 @@ const routes = [
         path:"/register",
         component:()=>import("@/views/Register")
     },
+    {
+        name:"JobPostingPage",
+        path:"/jobposting",
+        component:()=>import("@/views/JobPosting")
+    },
+    {
+        name:"CandidatePage",
+        path:"/candidate",
+        component:()=>import("@/views/Candidate")
+    },
+    {
+        name:"EmployerPage",
+        path:"/employer",
+        component:()=>import("@/views/Employer")
+    },
+    {
+        name:"AboutPage",
+        path:"/about",
+        component:()=>import("@/views/About")
+    },
 ]
 
 const router = createRouter({
