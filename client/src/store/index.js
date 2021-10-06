@@ -2,37 +2,52 @@ import axios from "axios";
 import {createStore} from "vuex";
 
 const store = createStore({
-
     state:{
-        users : []
+        users : [],
+        cvDetails: [],
+        confirmedEmployers: []
     },
 
-    mutations:{
-        setUsers(state,users){
-            state.users = users;
-        }
-    },
+    mutations:{ 
+        setCvDetails(state,cvDetails){
+            state.cvDetails = cvDetails;
+            console.log("--")
+            console.log(cvDetails)
+            console.log("--")
+        },
+        setConfirmedEmployers(state,confirmedEmployers){
+            state.confirmedEmployers = confirmedEmployers;
+            console.log("--")
+            console.log(confirmedEmployers)
+            console.log("--")
+        },  
+    },     
 
     actions:{
-        getUsers({commit}) {
-            axios.get('http://localhost:8081/api/users/getAll')
+        getCvDetails({commit}) {
+            axios.get(`http://localhost:8080/api/resumes/getAllResumesDetailsByActivatedCandidate`)
             .then(response=>{
-                console.log(response)
-                commit('setUsers',response.data)
+                commit('setCvDetails',response.data.data)
             })
-        }
-        
+        },
+        getConfirmedEmployers({commit},params) {
+            axios.get(`http://localhost:8080/api/employers/getAllByIsConfirmedAndUserConfirmationTypeIdSortedByCompanyName?isConfirmed=${params.status}&userConfirmationTypeId=${params.id}`)
+            .then(response=>{
+                commit('setConfirmedEmployers',response.data.data)
+            })
+        }, 
     },
 
     getters:{
-        getUsersEmailPassword: state => state.users.data.filter(user=>user.email != null && user.password != null),
         getUsersLength(state){
             return state.users.data.length
+        }    ,
+        getImages(state){
+            console.log(state.cvDetails.data)
+            return state.cvDetails.data
         }    
     },
-
     modules:{
-
     }
 })
 

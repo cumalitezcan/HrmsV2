@@ -42,9 +42,9 @@ export default {
         }
     },
 
-    created() {
-        this.$store.dispatch("getUsers")
-    },
+    // created() {
+    //     this.$store.dispatch("getUsers")
+    // },
 
 
     methods: {
