@@ -39,14 +39,21 @@
         </div>
 
         <div class="me-5">
-          <button class="me-2 btn btn-outline-success" type="submit">
-            Log-in
-          </button>
-          <button class="btn btn-outline-success me-5" type="submit">
-            Register
-          </button>
+          <ModalLogIn />
+          <ModalRegister />
         </div>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+import ModalLogIn from "./ModalLogIn.vue";
+import ModalRegister from "./ModalRegister.vue";
+export default {
+  components: {
+    ModalLogIn,
+    ModalRegister,
+  },
+};
+</script>

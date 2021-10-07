@@ -2,8 +2,8 @@
   <div
     v-for="user in $store.state.cvDetails"
     :key="user.id"
-    class="card"
-    style="width: 18rem;"
+    class="card col-3"
+    
   >
     <div v-if="user.image !== null">
       <img :src="user.image.url" class="card-img-top" alt="resim1" />

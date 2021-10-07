@@ -24,4 +24,6 @@ Generated 5 paragraphs, 498 words, 3286 bytes of Lorem Ipsum</p>
             </div>
         </div>
     </div>
+    <hr />
+    <Footer />
 </template>

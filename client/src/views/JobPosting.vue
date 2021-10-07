@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="row d-flex justify-content-center">
-      <div class="col-6 offset-1">
+      <div class="col-md-6 offset-1">
         <div class="row d-flex justify-content-between ">
           <Card />
           <Card />
@@ -18,7 +18,7 @@
           <Card />
         </div>
       </div>
-      <div class="col-4 offset-1 ">
+      <div class="col-md-4 offset-1 ">
      
           <Dropdown class="mb-2" />
           <Dropdown class="mb-2" />
@@ -27,12 +27,19 @@
           <button class="btn btn-warning d-grid gap-2 col-5 mb-2">Filter</button>
           <button class="btn btn-light d-grid gap-2 col-5 mb-2 border">Clear Filter</button>
          
-          
-      
-      
       </div>
     </div>
   </div>
   <hr />
   <Footer />
 </template>
+
+<script>
+export default {
+  
+  mounted(){
+    this.$store.dispatch('getCities')
+    console.log("get cities")
+  }
+}
+</script>

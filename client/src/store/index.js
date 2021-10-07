@@ -5,7 +5,8 @@ const store = createStore({
     state:{
         users : [],
         cvDetails: [],
-        confirmedEmployers: []
+        confirmedEmployers: [],
+        cities: []
     },
 
     mutations:{ 
@@ -21,6 +22,12 @@ const store = createStore({
             console.log(confirmedEmployers)
             console.log("--")
         },  
+        setCities(state,cities){
+            state.cities = cities;
+            console.log("--")
+            console.log(cities)
+            console.log("--")
+        },  
     },     
 
     actions:{
@@ -28,6 +35,12 @@ const store = createStore({
             axios.get(`http://localhost:8080/api/resumes/getAllResumesDetailsByActivatedCandidate`)
             .then(response=>{
                 commit('setCvDetails',response.data.data)
+            })
+        },
+        getCities({commit}) {
+            axios.get(`http://localhost:8080/api/cities/getAll`)
+            .then(response=>{
+                commit('setCities',response.data)
             })
         },
         getConfirmedEmployers({commit},params) {
