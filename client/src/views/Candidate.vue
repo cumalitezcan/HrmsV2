@@ -26,9 +26,7 @@ export default {
      created() {
         this.$store.dispatch("getCvDetails")
         this.$store.dispatch("getUsers")
-        console.log("geldi")
-        console.log(this.$store.state)
-        console.log(this.$store.getters.getUsersLogIn)
+       
     },
 
    

@@ -10,7 +10,8 @@ const store = createStore({
     jobTitles: [],
     workingTimes: [],
     workingTypes: [],
-    jobPostingConfirmations: []
+    jobPostingConfirmations: [],
+    jobPosting : null
   },
 
   mutations: {
@@ -39,6 +40,9 @@ const store = createStore({
     },
     setJobPostingConfirmations(state, jobPostingConfirmations) {
       state.jobPostingConfirmations = jobPostingConfirmations;
+    },
+    setJobPostingById(state, jobPosting) {
+      state.jobPosting = jobPosting;
     },
   },
 
@@ -99,6 +103,13 @@ const store = createStore({
         .get(`http://localhost:8080/api/jobPostingConfirmations/getAll`)
         .then((response) => {
           commit("setJobPostingConfirmations", response.data.data);
+        });
+    },
+    getJobPostingById({ commit },id) {
+      axios
+        .get(`http://localhost:8080/api/jobPostings/getById?id=${id}`)
+        .then((response) => {
+          commit("setJobPostingById", response.data.data);
         });
     },
   },

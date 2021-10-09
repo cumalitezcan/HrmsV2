@@ -7,12 +7,13 @@ import store from './store';
 import navbar from "@/components/Navbar";
 import footer from "@/components/Footer";
 import card from "@/components/Card";
+import jobcard from "@/components/JobCard";
 import pages from "@/components/Pages";
 import pagesize from "@/components/PageSize";
 import dropdown from "@/components/Dropdown";
 import imagecard from "@/components/ImageCard";
 import employerbox from "@/components/EmployerBox";
-import jobcard from "@/components/JobCard";
+import detail from "@/components/Detail";
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,6 +33,7 @@ app.component("Dropdown",dropdown);
 app.component("ImageCard",imagecard);
 app.component("EmployerBox",employerbox);
 app.component("JobCard",jobcard);
+app.component("Detail",detail);
 app.use(router);
 app.use(store);
 app.config.globalProperties.$appAxios = appAxios;

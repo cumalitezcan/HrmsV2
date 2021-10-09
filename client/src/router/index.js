@@ -19,23 +19,28 @@ const routes = [
     },
     {
         name:"JobPostingPage",
-        path:"/jobposting",
+        path:"/jobPostings",
         component:()=>import("@/views/JobPosting")
     },
     {
         name:"CandidatePage",
-        path:"/candidate",
+        path:"/candidates",
         component:()=>import("@/views/Candidate")
     },
     {
         name:"EmployerPage",
-        path:"/employer",
+        path:"/employers",
         component:()=>import("@/views/Employer")
     },
     {
         name:"AboutPage",
         path:"/about",
         component:()=>import("@/views/About")
+    },
+    {
+        name:"JobPostingDetail",
+        path:"/jobPostings/jobPosting/:id",
+        component:()=>import("@/views/JobPostingDetail")
     },
 ]
 
