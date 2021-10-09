@@ -5,7 +5,7 @@
       <div class="p-5 col-md-6">
         <img src="@/assets/hrms2.png" class="img-fluid" alt="..." />
       </div>
-      <div class="col-md-6 p-5">
+      <div class="col-lg-6 p-5">
         <div>
           <h1
             class="mt-5 text-center display-2 fw-bold fst-italic text-primary"
@@ -37,7 +37,7 @@
     <div class="row mt-3">
       <div class="col d-flex justify-content-center d-grid gap-2 col-6 mx-auto">
         <router-link :to="{ name: 'JobPostingPage' }">
-          <button class="btn btn-warning" type="button">
+          <button class="btn btn-warning">
             View All Job Postings by Posting Date
           </button>
         </router-link>

@@ -6,7 +6,7 @@
     </button> -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div>
-          <button class="btn btn-primary">Logo</button>
+          <i class="fab fa-artstation"></i>
         </div>
         <div class="ms-auto me-auto">
           <ul class="navbar-nav">

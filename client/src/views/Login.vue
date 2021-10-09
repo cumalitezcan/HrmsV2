@@ -42,9 +42,17 @@ export default {
         }
     },
 
-    // created() {
-    //     this.$store.dispatch("getUsers")
-    // },
+    created() {
+        this.$store.dispatch("getUsers")
+    },
+
+     computed:{
+      usersLogIn(){
+        console.log("computed")
+        console.log(this.usersLogIn)
+        return this.$store.getters.getUsersLogIn
+      }
+    },
 
 
     methods: {

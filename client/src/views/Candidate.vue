@@ -8,6 +8,11 @@
     </div>
   </div>
   <hr />
+  <ul>
+    <li v-for="(u,index) in usersLogIn" :key="index">
+      {{u}}
+    </li>
+  </ul>
   <Footer />
 </template>
 
@@ -18,10 +23,15 @@
 
 export default {
 
-     mounted() {
+     created() {
         this.$store.dispatch("getCvDetails")
+        this.$store.dispatch("getUsers")
         console.log("geldi")
+        console.log(this.$store.state)
+        console.log(this.$store.getters.getUsersLogIn)
     },
+
+   
     
 }
 </script>

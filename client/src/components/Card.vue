@@ -1,6 +1,6 @@
 <template>
-    <div class="card text-dark bg-info mb-3" style="max-width: 18rem;">
-          <div class="card-header">Header</div>
+    <div  class="card text-dark bg-info mb-3" style="max-width: 18rem;">
+          <div class="card-header">Başlık</div>
           <div class="card-body">
             <h5 class="card-title">Info card title</h5>
             <p class="card-text">

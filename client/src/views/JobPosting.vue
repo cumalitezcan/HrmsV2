@@ -12,21 +12,18 @@
     <div class="row d-flex justify-content-center">
       <div class="col-md-6 offset-1">
         <div class="row d-flex justify-content-between ">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <JobCard m-2 />
         </div>
       </div>
       <div class="col-md-4 offset-1 ">
-     
-          <Dropdown class="mb-2" />
-          <Dropdown class="mb-2" />
-          <Dropdown class="mb-2" />
-          <Dropdown class="mb-2" />
-          <button class="btn btn-warning d-grid gap-2 col-5 mb-2">Filter</button>
-          <button class="btn btn-light d-grid gap-2 col-5 mb-2 border">Clear Filter</button>
-         
+        <Dropdown class="mb-2" />
+        <Dropdown class="mb-2" />
+        <Dropdown class="mb-2" />
+        <Dropdown class="mb-2" />
+        <button class="btn btn-warning d-grid gap-2 col-5 mb-2">Filter</button>
+        <button class="btn btn-light d-grid gap-2 col-5 mb-2 border">
+          Clear Filter
+        </button>
       </div>
     </div>
   </div>
@@ -36,10 +33,16 @@
 
 <script>
 export default {
-  
-  mounted(){
-    this.$store.dispatch('getCities')
-    console.log("get cities")
-  }
-}
+  created() {
+    this.$store.dispatch("getCities");
+
+    this.$store.dispatch("getJobTitles");
+
+    this.$store.dispatch("getWorkingTimes");
+
+    this.$store.dispatch("getWorkingTypes");
+
+    this.$store.dispatch("getJobPostingConfirmations");
+  },
+};
 </script>
