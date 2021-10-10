@@ -2,7 +2,7 @@
   <!-- Button trigger modal -->
   <button
     type="button"
-    class="btn btn-primary ms-2"
+    class="btn btn-outline-warning btn-rounded ms-2"
     data-bs-toggle="modal"
     data-bs-target="#exampleModal2"
   >

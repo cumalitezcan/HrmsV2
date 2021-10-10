@@ -6,33 +6,33 @@
     </button> -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div>
-          <i class="fab fa-artstation"></i>
+          <i class="fab fa-artstation fa-2x"></i>
         </div>
         <div class="ms-auto me-auto">
           <ul class="navbar-nav">
             <router-link :to="{ name: 'HomePage' }">
-              <li class="nav-item active">
-                <a class="nav-link">Home</a>
+              <li class="nav-item active me-2">
+                <a class="btn btn-outline-dark btn-rounded">Home</a>
               </li>
             </router-link>
             <router-link :to="{ name: 'JobPostingPage' }">
-              <li class="nav-item">
-                <a class="nav-link">Job Postings</a>
+              <li class="nav-item me-2">
+                <a class="btn btn-outline-dark btn-rounded">Job Postings</a>
               </li>
             </router-link>
             <router-link :to="{ name: 'CandidatePage' }">
-              <li class="nav-item">
-                <a class="nav-link">Candidates</a>
+              <li class="nav-item me-2">
+                <a class="btn btn-outline-dark btn-rounded">Candidates</a>
               </li>
             </router-link>
             <router-link :to="{ name: 'EmployerPage' }">
-              <li class="nav-item">
-                <a class="nav-link">Employers</a>
+              <li class="nav-item me-2">
+                <a class="btn btn-outline-dark btn-rounded">Employers</a>
               </li>
             </router-link>
             <router-link :to="{ name: 'AboutPage' }">
-              <li class="nav-item">
-                <a class="nav-link">About Us</a>
+              <li class="nav-item me-2">
+                <a class="btn btn-outline-dark btn-rounded">About Us</a>
               </li>
             </router-link>
           </ul>
@@ -55,5 +55,6 @@ export default {
     ModalLogIn,
     ModalRegister,
   },
+  
 };
 </script>

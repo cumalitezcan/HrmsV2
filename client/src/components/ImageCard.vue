@@ -35,8 +35,16 @@
 
      <!-- <p class="card-text">  {{job.jobTitle.title !== null || job.jobTitle.title !== undefined ? job.jobTitle.title : 'yok'}}   </p> -->
       </div>
-    
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="text-center mt-2">
+         <a class="me-2" style="color: #171515 ;" href="#!" role="button"
+          ><i class="fab fa-github fa-2x"></i
+        ></a>
+
+        <a style="color: #0077b5;" href="#!" role="button"
+          ><i class="fab fa-linkedin fa-2x"></i
+        ></a>
+      </div>
+     
     </div>
   </div>
 </template>

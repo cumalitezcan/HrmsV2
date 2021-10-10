@@ -35,11 +35,17 @@
     </div>
 
     <div class="row mt-3">
-      <div class="col d-flex justify-content-center d-grid gap-2 col-6 mx-auto">
+      <div class="col d-flex justify-content-center d-grid gap-2 col-6 mx-auto text-center">
         <router-link :to="{ name: 'JobPostingPage' }">
-          <button class="btn btn-warning">
-            View All Job Postings by Posting Date
-          </button>
+          <!-- <p class="btn btn-warning">
+           View All Job Postings by Posting Date
+          </p> -->
+          <a class="fas fa-arrow-down fa-2x"></a>
+          <div class="mt-2">
+            <button type="button" class="btn btn-outline-success btn-rounded">
+              View All Job Postings by Posting Date
+            </button>
+          </div>
         </router-link>
       </div>
     </div>

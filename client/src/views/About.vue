@@ -1,8 +1,8 @@
 <template>
     <Navbar />
-    <hr />
     <div class="container">
         <h1>About us</h1>
+         <hr />
         <div class="row">
             <div class="col-12">
                 <p>Lorem Ipsum
