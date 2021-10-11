@@ -1,8 +1,8 @@
 <template>
     <div class="btn-group me-2" role="group" aria-label="First group">
-      <button type="button" class="btn btn-primary">1</button>
-      <button type="button" class="btn btn-primary">2</button>
-      <button type="button" class="btn btn-primary">3</button>
-      <button type="button" class="btn btn-primary">4</button>
+      <button type="button" class="btn btn-dark">1</button>
+      <button type="button" class="btn btn-dark">2</button>
+      <button type="button" class="btn btn-dark">3</button>
+      <button type="button" class="btn btn-dark">4</button>
     </div>
 </template>

@@ -25,11 +25,6 @@
       <div class="col-md-10 offset-1 ">
         <div class="row d-flex justify-content-between">
           <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
         </div>
       </div>
     </div>
@@ -53,3 +48,12 @@
   <hr />
   <Footer />
 </template>
+
+<script>
+export default {
+  created(){
+    this.$store.dispatch("getRecentlyPosted");
+    this.$store.dispatch("getJobPostintConfirmation");
+  }
+}
+</script>

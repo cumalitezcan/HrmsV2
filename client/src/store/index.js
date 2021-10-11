@@ -11,7 +11,9 @@ const store = createStore({
     workingTimes: [],
     workingTypes: [],
     jobPostingConfirmations: [],
-    jobPosting : null
+    jobPosting : null ,
+    recentlyPosted: [],
+    jobPostintConfirmation: null
   },
 
   mutations: {
@@ -43,6 +45,12 @@ const store = createStore({
     },
     setJobPostingById(state, jobPosting) {
       state.jobPosting = jobPosting;
+    },
+    setRecentlyPosted(state, recentlyPosted) {
+      state.recentlyPosted = recentlyPosted;
+    },
+    setJobPostintConfirmation(state, jobPostintConfirmation) {
+      state.jobPostintConfirmation = jobPostintConfirmation;
     },
   },
 
@@ -100,7 +108,7 @@ const store = createStore({
     },
     getJobPostingConfirmations({ commit }) {
       axios
-        .get(`http://localhost:8080/api/jobPostingConfirmations/getAll`)
+        .get(`http://localhost:8080/api/jobPostings/getAllByIsActive?isActive=true`)
         .then((response) => {
           commit("setJobPostingConfirmations", response.data.data);
         });
@@ -110,6 +118,20 @@ const store = createStore({
         .get(`http://localhost:8080/api/jobPostings/getById?id=${id}`)
         .then((response) => {
           commit("setJobPostingById", response.data.data);
+        });
+    },
+    getRecentlyPosted({ commit }) {
+      axios
+        .get(`http://localhost:8080/api/jobPostings/getAllActiveOnesSortedByPostingDateTop6`)
+        .then((response) => {
+          commit("setRecentlyPosted", response.data.data);
+        });
+    },
+    getJobPostintConfirmation({ commit },id) {
+      axios
+        .get(`http://localhost:8080/api/jobPostingConfirmations/getById?id=${id}`)
+        .then((response) => {
+          commit("setJobPostintConfirmation", response.data.data);
         });
     },
   },

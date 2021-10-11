@@ -1,8 +1,8 @@
 <template>
 <div class="col-6" v-for="employer in confirmedEmployers" :key="employer.id">
-  <div class="card align-items-center">
-    <h4 class="card-title mt-3">{{employer.companyName}}</h4>
-    <div class="card-body">
+  <div class="card align-items-center m-2" style="background-color: #757575;">
+    <h4 class="card-title mt-3 fw-bold text-decoration-underline text-light">{{employer.companyName}}</h4>
+    <div class="card-body text-light">
       {{employer.webAddress}}
     </div>
   </div>

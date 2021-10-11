@@ -38,7 +38,7 @@
           </ul>
         </div>
 
-        <div class="me-5">
+        <div class="d-flex me-2">
           <ModalLogIn />
           <ModalRegister />
         </div>

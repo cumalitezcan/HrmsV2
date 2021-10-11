@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-md-6 offset-3">
       <div>
-        {{ user.jobPosting.postingDate }}
+        {{ user.postingDate }}
       </div>
       <div>
         <div>
-          <h1>{{ user.jobPosting.jobTitle.title }}</h1>
-          <h3>{{ user.jobPosting.employer.companyName }}</h3>
-          <h3>{{ user.jobPosting.employer.webAddress }}</h3>
-          <h3>{{ user.jobPosting.employer.email }}</h3>
-          <h3>{{ user.jobPosting.employer.phoneNumber }}</h3>
+          <h1>{{ user.jobTitle.title }}</h1>
+          <h3>{{ user.employer.companyName }}</h3>
+          <h3>{{ user.employer.webAddress }}</h3>
+          <h3>{{ user.employer.email }}</h3>
+          <h3>{{ user.employer.phoneNumber }}</h3>
         </div>
         <div>
           <button>Make passive</button>
@@ -35,17 +35,17 @@
           mollis aliquam. Id porta nibh venenatis cras sed felis eget.
         </p>
         <ul>
-          <li>City: {{ user.jobPosting.city.city }}</li>
-          <li>Working Time: {{ user.jobPosting.workingTime.time }}</li>
-          <li>Working Type: {{ user.jobPosting.workingType.type }}</li>
-          <li>Salary Min: {{ user.jobPosting.salaryMin }}</li>
-          <li>Salary Max: {{ user.jobPosting.salaryMax }}</li>
+          <li>City: {{ user.city.city }}</li>
+          <li>Working Time: {{ user.workingTime.time }}</li>
+          <li>Working Type: {{ user.workingType.type }}</li>
+          <li>Salary Min: {{ user.salaryMin }}</li>
+          <li>Salary Max: {{ user.salaryMax }}</li>
           <li>
             Number of Open Positions:
-            {{ user.jobPosting.numberOfOpenPositions }}
+            {{ user.numberOfOpenPositions }}
           </li>
         </ul>
-        <p>Closing Date {{ user.jobPosting.closingDate }}</p>
+        <p>Closing Date {{ user.closingDate }}</p>
       </div>
     </div>
   </div>

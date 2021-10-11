@@ -18,24 +18,27 @@
     aria-hidden="true"
   >
     <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content">
+      <div class="modal-content bg-transparent text-dark">
         <div class="modal-body position-relative">
-          <div class="row ">
+          <div class="text-center ">
             <div
-              class="col-3 position-absolute top-50 start-50 translate-middle"
-            >
-              <button class="btn btn-primary">Icon</button>
-              <p class="fw-bolder">
+              class="col-3 position-absolute top-50 start-50 translate-middle" >
+            
+              <button class="btn btn-outline-info btn-rounded mb-2">
+                <i class="fas fa-user-plus fa-3x"></i>
+              </button>
+              <p class="fw-bolder fs-4 text-monospace text-dark">
                 What type of account do you want to create ?
               </p>
               <router-link :to="{ name: 'LoginPage' }">
-                <button class="btn btn-info">Candidate2</button>
+                <button class="btn btn-info" data-bs-dismiss="modal">Candidate</button>
               </router-link>
               <h3>or</h3>
               <router-link :to="{ name: 'LoginPage' }">
-                <button class="btn btn-warning">Employer2</button>
+                <button class="btn btn-warning" data-bs-dismiss="modal">Employer</button>
               </router-link>
             </div>
+        
           </div>
         </div>
         <div class="modal-footer">
