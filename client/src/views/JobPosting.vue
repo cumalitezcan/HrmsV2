@@ -16,13 +16,13 @@
         </div>
       </div>
       <div class="col-md-4 offset-1 ">
-        <Dropdown class="mb-2" />
-        <Dropdown class="mb-2" />
-        <Dropdown class="mb-2" />
-        <Dropdown class="mb-2" />
+        <Dropdown :data="jobTitleFilter" title="Job Title" class="mb-2" />
+        <Dropdown :data="cityFilter" title="City" class="mb-2" />
+        <Dropdown :data="workingTimeFilter" title="Working Time" class="mb-2" />
+        <Dropdown :data="workingTypeFilter" title="Working Type" class="mb-2" />
         <button class="btn btn-warning d-grid gap-2 col-5 mb-2">Filter</button>
         <button class="btn btn-light d-grid gap-2 col-5 mb-2 border">
-          Clear Filter
+          Clear
         </button>
       </div>
     </div>
@@ -32,7 +32,9 @@
 </template>
 
 <script>
+ import {mapGetters} from "vuex";
 export default {
+
   created() {
     this.$store.dispatch("getCities");
 
@@ -43,6 +45,19 @@ export default {
     this.$store.dispatch("getWorkingTypes");
 
     this.$store.dispatch("getJobPostingConfirmations");
+
+
   },
+
+  computed:  {
+    ...mapGetters({
+   
+      jobTitleFilter : "_jobTitleFilter",
+      cityFilter : "_cityFilter",
+      workingTimeFilter : "_workingTimeFilter",
+      workingTypeFilter : "_workingTypeFilter"
+     
+           })
+  }
 };
 </script>

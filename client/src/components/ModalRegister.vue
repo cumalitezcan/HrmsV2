@@ -30,11 +30,11 @@
               <p class="fw-bolder fs-4 text-monospace text-dark">
                 What type of account do you want to create ?
               </p>
-              <router-link :to="{ name: 'LoginPage' }">
+              <router-link :to="{ name: 'RegisterCandidatePage' }">
                 <button class="btn btn-info" data-bs-dismiss="modal">Candidate</button>
               </router-link>
               <h3>or</h3>
-              <router-link :to="{ name: 'LoginPage' }">
+              <router-link :to="{ name: 'RegisterEmployerPage' }">
                 <button class="btn btn-warning" data-bs-dismiss="modal">Employer</button>
               </router-link>
             </div>

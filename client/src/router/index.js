@@ -12,11 +12,7 @@ const routes = [
         path:"/login",
         component:()=>import("@/views/Login")
     },
-    {
-        name:"RegisterPage",
-        path:"/register",
-        component:()=>import("@/views/Register")
-    },
+   
     {
         name:"JobPostingPage",
         path:"/jobPostings",
@@ -41,6 +37,21 @@ const routes = [
         name:"JobPostingDetail",
         path:"/jobPostings/jobPosting/:id",
         component:()=>import("@/views/JobPostingDetail")
+    },
+    {
+        name:"RegisterCandidatePage",
+        path:"/candidate/add",
+        component:()=>import("@/views/RegisterCandidate")
+    },
+    {
+        name:"RegisterEmployerPage",
+        path:"/employer/add",
+        component:()=>import("@/views/RegisterEmployer")
+    },
+    {
+        name:"EmployerDetailPage",
+        path:"/employers/employer/:id",
+        component:()=>import("@/views/EmployerDetail")
     },
 ]
 

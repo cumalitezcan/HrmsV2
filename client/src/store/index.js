@@ -13,7 +13,8 @@ const store = createStore({
     jobPostingConfirmations: [],
     jobPosting : null ,
     recentlyPosted: [],
-    jobPostintConfirmation: null
+    jobPostintConfirmation: null,
+    employerDetail : null
   },
 
   mutations: {
@@ -145,6 +146,53 @@ const store = createStore({
         };
       });
     },
+
+    _jobTitleFilter: (state) => {
+      return state.jobTitles.data.map((jobTitle)=>{
+        console.log(jobTitle)
+        return {
+          id:jobTitle.id,
+          data:jobTitle.title,
+        };
+      });
+    },
+    _cityFilter: (state) => {
+      return state.cities.data.map((city)=>{
+        return {
+          id:city.id,
+          data:city.city,
+        };
+      });
+    },
+    _workingTimeFilter: (state) => {
+      return state.workingTimes.data.map((workingTime)=>{
+        return {
+          id:workingTime.id,
+          data:workingTime.time,
+        };
+      });
+    },
+    _workingTypeFilter: (state) => {
+      return state.workingTypes.data.map((workingType)=>{
+        return {
+          id:workingType.id,
+          data:workingType.type,
+        };
+      });
+    },
+    // _CandidateFilter: (state) => {
+    //   return state.cvDetails.data.map((candidate)=>{
+    //     return {
+    //       id:candidate.id,
+    //       experiences: candidate.experiences,
+    //       firstName:candidate.candidate.firstName,
+    //       lastName:candidate.candidate.lastName,
+    //       imageUrl:candidate.image.url,
+    //       links:candidate.links,
+    //     };
+    //   });
+    // },
+
     // getUsersLogIn : state => {
     //    const newList = state.users.map(user=>{
     //         return {

@@ -1,6 +1,6 @@
 <template>
   <div
-    v-for="user in $store.state.cvDetails"
+    v-for="user in cvDetails"
     :key="user.id"
     class="card col-3"
     
@@ -48,3 +48,14 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  
+  computed: {
+    cvDetails(){
+      return this.$store.state.cvDetails;
+    }
+  }
+}
+</script>

@@ -15,20 +15,14 @@
   </ul>
   <Footer />
 </template>
-
 <script>
-
-
-
 
 export default {
 
-     created() {
+     mounted() {
         this.$store.dispatch("getCvDetails")
         this.$store.dispatch("getUsers")
     },
 
-   
-    
 }
 </script>

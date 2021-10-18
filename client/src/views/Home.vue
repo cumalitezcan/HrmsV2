@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  created(){
+  mounted(){
     this.$store.dispatch("getRecentlyPosted");
     this.$store.dispatch("getJobPostintConfirmation");
   }
