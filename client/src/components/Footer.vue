@@ -1,4 +1,5 @@
 <template>
+
   <div class="col-12 d-flex align-items-center justify-content-center">
     <div class="row text-center">
       <p class="fw-bolder">

@@ -1,4 +1,5 @@
 <template>
+<div>
   <div
     v-for="u in user"
     :key="u.id"
@@ -29,7 +30,7 @@
         </button>
       </router-link>
       </div>
-
+        </div>
        </div>
     
     </div>
@@ -41,7 +42,6 @@ export default {
 
   methods: {
     sendJobPosting(u) {
-      
       this.$store.state.jobPosting = u;
     },
   },

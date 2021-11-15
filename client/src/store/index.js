@@ -14,7 +14,7 @@ const store = createStore({
     jobPosting : null ,
     recentlyPosted: [],
     jobPostintConfirmation: null,
-    employerDetail : null
+    employerDetail : null,
   },
 
   mutations: {
@@ -175,11 +175,23 @@ const store = createStore({
     _workingTypeFilter: (state) => {
       return state.workingTypes.data.map((workingType)=>{
         return {
-          id:workingType.id,
-          data:workingType.type,
-        };
-      });
+            id:workingType.id,
+            data:workingType.type,
+        }
+      })
     },
+    
+
+    jobPostingsBySize: (state) => {
+        return {
+          ten:state.jobPostingConfirmations.slice(0,10),
+          twenty:state.jobPostingConfirmations.slice(0,20),
+          fifty:state.jobPostingConfirmations.slice(0,50),
+          onehundred:state.jobPostingConfirmations.slice(0,100),
+        }
+    }
+
+
     // _CandidateFilter: (state) => {
     //   return state.cvDetails.data.map((candidate)=>{
     //     return {

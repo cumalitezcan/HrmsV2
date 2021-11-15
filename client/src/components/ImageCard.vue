@@ -1,4 +1,5 @@
 <template>
+<div>
   <div
     v-for="user in cvDetails"
     :key="user.id"
@@ -46,6 +47,7 @@
       </div>
      
     </div>
+  </div>
   </div>
 </template>
 

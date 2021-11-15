@@ -1,15 +1,32 @@
 <template>
-  <Navbar />
-  <div class="container">
-    <h1>Job Posting</h1>
-    <hr />
-    <div class="row">
-      <div class="col-8 offset-2 d-flex justify-content-start">
-        <PageSize class="m-4" />
-        <Pages class="mt-4 ms-5" />
+  <div>
+    <Navbar />
+    <div class="container">
+      <h1>Job Posting</h1>
+      <hr />
+      <div class="row">
+        <div class="col-md-8">
+          <PageSize />
+        </div>
+        <div class="col-md-4">
+          <h2>Filter Bölümü</h2>
+          <div class="d-flex flex-column">
+            <Dropdown :data="jobTitleFilter" title="Job Title" class="mb-2 mt-3" />
+            <Dropdown :data="cityFilter" title="City" class="mb-2" />
+            <Dropdown
+              :data="workingTimeFilter"
+              title="Working Time"
+              class="mb-2"
+            />
+            <Dropdown
+              :data="workingTypeFilter"
+              title="Working Type"
+              class="mb-2"
+            />
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row d-flex justify-content-center">
+      <!-- <div class="row d-flex justify-content-center">
       <div class="col-md-6 offset-1">
         <div class="row d-flex justify-content-between ">
           <JobCard m-2 />
@@ -25,15 +42,23 @@
           Clear
         </button>
       </div>
+    </div> -->
     </div>
+    <hr />
+    <Footer />
   </div>
-  <hr />
-  <Footer />
 </template>
 
 <script>
- import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
+import PageSize from "@/components/PageSize";
+import JobCard from "@/components/JobCard";
 export default {
+  name: "JobPosting",
+  components: {
+    PageSize,
+    JobCard,
+  },
 
   created() {
     this.$store.dispatch("getCities");
@@ -45,19 +70,15 @@ export default {
     this.$store.dispatch("getWorkingTypes");
 
     this.$store.dispatch("getJobPostingConfirmations");
-
-
   },
 
-  computed:  {
+  computed: {
     ...mapGetters({
-   
-      jobTitleFilter : "_jobTitleFilter",
-      cityFilter : "_cityFilter",
-      workingTimeFilter : "_workingTimeFilter",
-      workingTypeFilter : "_workingTypeFilter"
-     
-           })
-  }
+      jobTitleFilter: "_jobTitleFilter",
+      cityFilter: "_cityFilter",
+      workingTimeFilter: "_workingTimeFilter",
+      workingTypeFilter: "_workingTypeFilter",
+    }),
+  },
 };
 </script>
