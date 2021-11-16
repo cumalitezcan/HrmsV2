@@ -63,6 +63,10 @@ export default {
       selectedJobPostings: [],
     };
   },
+
+  created(){
+    console.log("page size postingin methodu")
+  },
   methods: {
     getData({ size, count }) {
       this.size = size;

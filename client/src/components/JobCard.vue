@@ -42,5 +42,9 @@ export default {
     },
   },
 
+  created(){
+    console.log("job card methodu")
+  }
+
 };
 </script>

@@ -6,9 +6,19 @@
       <hr />
       <div class="row">
         <div class="col-md-8">
-          <PageSize />
+          <div class="row">
+            <!-- <PageSize /> -->
+            <h1>Deneme1</h1>
+          </div>
+          <div class="row">
+            <div v-for="(jobPosting,index) in jobPostingsBySize.ten" :key="index"> -->
+            <!-- <Card /> -->
+            <h2>{{jobPosting.id}}</h2>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
+      </div>
+      <!-- <div class="col-md-4">
           <h2>Filter Bölümü</h2>
           <div class="d-flex flex-column">
             <Dropdown :data="jobTitleFilter" title="Job Title" class="mb-2 mt-3" />
@@ -24,9 +34,9 @@
               class="mb-2"
             />
           </div>
-        </div>
-      </div>
-      <!-- <div class="row d-flex justify-content-center">
+        </div> -->
+    </div>
+    <!-- <div class="row d-flex justify-content-center">
       <div class="col-md-6 offset-1">
         <div class="row d-flex justify-content-between ">
           <JobCard m-2 />
@@ -43,42 +53,58 @@
         </button>
       </div>
     </div> -->
-    </div>
+
     <hr />
     <Footer />
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import PageSize from "@/components/PageSize";
-import JobCard from "@/components/JobCard";
+import { mapState,mapGetters, mapActions } from "vuex";
+// import PageSize from "@/components/PageSize";
+// import JobCard from "@/components/JobCard";
 export default {
   name: "JobPosting",
-  components: {
-    PageSize,
-    JobCard,
+  data() {
+    return {
+     
+    };
   },
+  // components: {
+  //   PageSize,
+  //   JobCard,
+  // },
 
   created() {
-    this.$store.dispatch("getCities");
+    console.log("job postingin created methodu");
 
-    this.$store.dispatch("getJobTitles");
+    this.getJobPostingConfirmations();
+    
 
-    this.$store.dispatch("getWorkingTimes");
+    // this.$store.state.tempJobPosting = jobPostingsBySize.ten;
 
-    this.$store.dispatch("getWorkingTypes");
+    // this.$store.dispatch("getCities");
 
-    this.$store.dispatch("getJobPostingConfirmations");
+    // this.$store.dispatch("getJobTitles");
+
+    // this.$store.dispatch("getWorkingTimes");
+
+    // this.$store.dispatch("getWorkingTypes");
+
+    // this.$store.dispatch("getJobPostingConfirmations");
+  },
+
+  methods: {
+    ...mapActions(["getJobPostingConfirmations"]),
   },
 
   computed: {
-    ...mapGetters({
-      jobTitleFilter: "_jobTitleFilter",
-      cityFilter: "_cityFilter",
-      workingTimeFilter: "_workingTimeFilter",
-      workingTypeFilter: "_workingTypeFilter",
-    }),
+    ...mapGetters(["jobPostingsBySize"]),
+    ...mapState(["jobPostingConfirmations"]),
+    // jobTitleFilter: "_jobTitleFilter",
+    // cityFilter: "_cityFilter",
+    // workingTimeFilter: "_workingTimeFilter",
+    // workingTypeFilter: "_workingTypeFilter",
   },
 };
 </script>
