@@ -7,13 +7,11 @@
       <div class="row">
         <div class="col-md-8">
           <div class="row">
-            <!-- <PageSize /> -->
-            <h1>Deneme1</h1>
+            <PageSize @getClick="getClick" />
           </div>
-          <div class="row">
-            <div v-for="(jobPosting,index) in jobPostingsBySize.ten" :key="index"> -->
-            <!-- <Card /> -->
-            <h2>{{jobPosting.id}}</h2>
+          <div v-if="showData" class="d-flex flex-row flex-wrap">
+            <div v-for="(jobPosting,index) in jobPostingsBySize.ten" :key="index">
+              <JobCard :jobPosting="jobPosting" />
             </div>
           </div>
         </div>
@@ -61,27 +59,26 @@
 
 <script>
 import { mapState,mapGetters, mapActions } from "vuex";
-// import PageSize from "@/components/PageSize";
-// import JobCard from "@/components/JobCard";
+import PageSize from "@/components/PageSize";
+import JobCard from "@/components/JobCard";
 export default {
   name: "JobPosting",
   data() {
     return {
-     
+      showData : true
     };
   },
-  // components: {
-  //   PageSize,
-  //   JobCard,
-  // },
+  components: {
+    PageSize,
+    JobCard,
+  },
+
+  
 
   created() {
     console.log("job postingin created methodu");
 
     this.getJobPostingConfirmations();
-    
-
-    // this.$store.state.tempJobPosting = jobPostingsBySize.ten;
 
     // this.$store.dispatch("getCities");
 
@@ -96,6 +93,9 @@ export default {
 
   methods: {
     ...mapActions(["getJobPostingConfirmations"]),
+    getClick(clicked){
+      this.showData = clicked;
+    }
   },
 
   computed: {

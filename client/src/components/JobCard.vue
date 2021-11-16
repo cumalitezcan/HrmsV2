@@ -3,7 +3,6 @@
     <div
       class="card border-dark ms-3 me-3 mt-2 mb-2"
       style="width: 18rem;">
-      
       <div class="card-body">
         <h5 class="card-title fs-6 fw-bold text-decoration-underline">
           {{ jobPosting.jobTitle.title }}
@@ -11,7 +10,6 @@
         <h6 class="card-subtitle mb-2 text-muted">
           {{ jobPosting.employer.companyName }}
         </h6>
-
         <h6 class="font-monospace">
           Number Of Position:
           <span class="badge bg-danger ms-2">{{
@@ -42,9 +40,6 @@ export default {
     },
   },
 
-  created(){
-    console.log("job card methodu")
-  }
 
 };
 </script>

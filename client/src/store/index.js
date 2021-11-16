@@ -43,10 +43,6 @@ const store = createStore({
       state.workingTypes = workingTypes;
     },
     setJobPostingConfirmations(state, jobPostingConfirmations) {
-      console.log("mutationa geldi")
-      console.log(jobPostingConfirmations)
-      console.log("mutationa geldi")
-
       state.jobPostingConfirmations = jobPostingConfirmations;
     },
     setJobPostingById(state, jobPosting) {
@@ -117,14 +113,9 @@ const store = createStore({
         });
     },
     getJobPostingConfirmations({ commit }) {
-      console.log("action'a geldi")
       axios
         .get(`http://localhost:8080/api/jobPostings/getAllByIsActive?isActive=true`)
         .then((response) => {
-          console.log("istek atıldı")
-          console.log("***")
-          console.log(response.data.data)
-          console.log("***")
           commit("setJobPostingConfirmations", response.data.data);
         });
     },
@@ -197,7 +188,6 @@ const store = createStore({
     
 
     jobPostingsBySize: (state) => {
-      console.log(state.jobPostingConfirmations)
         return {
           ten:state.jobPostingConfirmations.slice(0,10),
           twenty:state.jobPostingConfirmations.slice(0,20),
