@@ -1,10 +1,6 @@
 <template>
-<div>
-  <div
-    v-for="user in cvDetails"
-    :key="user.id"
-    class="card col-3"
-    
+  <div class="card border-dark m-3" style="width: 18rem;"
+   
   >
     <div v-if="user.image !== null">
       <img :src="user.image.url" class="card-img-top" alt="resim1" />
@@ -24,7 +20,7 @@
         v-for="job in user.experiences"
         :key="job.id"
         class="card"
-        style="width: 18rem;"
+      
       >
 
       <div v-if="job.jobTitle.title != null & job.id != null">
@@ -36,6 +32,7 @@
 
      <!-- <p class="card-text">  {{job.jobTitle.title !== null || job.jobTitle.title !== undefined ? job.jobTitle.title : 'yok'}}   </p> -->
       </div>
+
       <div class="text-center mt-2">
          <a class="me-2" style="color: #171515 ;" href="#!" role="button"
           ><i class="fab fa-github fa-2x"></i
@@ -48,16 +45,12 @@
      
     </div>
   </div>
-  </div>
 </template>
 
 <script>
 export default {
-  
-  computed: {
-    cvDetails(){
-      return this.$store.state.cvDetails;
-    }
+  props:["user"],
+ 
   }
-}
+
 </script>

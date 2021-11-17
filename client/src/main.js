@@ -24,8 +24,6 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 
 
-
-
 const app = createApp(App);
 
 app.component("Navbar",navbar);
@@ -39,7 +37,6 @@ app.component("EmployerBox",employerbox);
 app.component("JobCard",jobcard);
 app.component("Detail",detail);
 app.component("DateTime",datetime);
-
 
 app.use(router);
 app.use(store);

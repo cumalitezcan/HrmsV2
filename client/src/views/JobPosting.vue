@@ -15,24 +15,17 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- <div class="col-md-4">
+      
+      <div class="col-md-4 mt-3">
           <h2>Filter Bölümü</h2>
           <div class="d-flex flex-column">
             <Dropdown :data="jobTitleFilter" title="Job Title" class="mb-2 mt-3" />
-            <Dropdown :data="cityFilter" title="City" class="mb-2" />
-            <Dropdown
-              :data="workingTimeFilter"
-              title="Working Time"
-              class="mb-2"
-            />
-            <Dropdown
-              :data="workingTypeFilter"
-              title="Working Type"
-              class="mb-2"
-            />
+            <Dropdown :data="cityFilter" title="City" class="mb-2 mt-3" />
+            <Dropdown :data="workingTimeFilter" title="Working Time" class="mb-2 mt-3" />
+            <Dropdown :data="workingTypeFilter" title="Working Type" class="mb-2 mt-3" />
           </div>
-        </div> -->
+        </div>
+      </div>
     </div>
     <!-- <div class="row d-flex justify-content-center">
       <div class="col-md-6 offset-1">
@@ -58,7 +51,7 @@
 </template>
 
 <script>
-import { mapState,mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import PageSize from "@/components/PageSize";
 import JobCard from "@/components/JobCard";
 export default {
@@ -80,27 +73,26 @@ export default {
 
     this.getJobPostingConfirmations();
 
-    // this.$store.dispatch("getCities");
+    this.getJobTitles();
 
-    // this.$store.dispatch("getJobTitles");
+    this.getCities();
 
-    // this.$store.dispatch("getWorkingTimes");
+    this.getWorkingTimes();
 
-    // this.$store.dispatch("getWorkingTypes");
+    this.getWorkingTypes();
 
-    // this.$store.dispatch("getJobPostingConfirmations");
   },
 
   methods: {
-    ...mapActions(["getJobPostingConfirmations"]),
+    ...mapActions(["getJobPostingConfirmations","getJobTitles","getCities","getWorkingTimes","getWorkingTypes"]),
     getClick(clicked){
       this.showData = clicked;
     }
   },
 
   computed: {
-    ...mapGetters(["jobPostingsBySize"]),
-    ...mapState(["jobPostingConfirmations"]),
+    ...mapGetters(["jobPostingsBySize","jobTitleFilter","cityFilter","workingTimeFilter","workingTypeFilter"]),
+    // ...mapState(["jobPostingConfirmations"]),
     // jobTitleFilter: "_jobTitleFilter",
     // cityFilter: "_cityFilter",
     // workingTimeFilter: "_workingTimeFilter",

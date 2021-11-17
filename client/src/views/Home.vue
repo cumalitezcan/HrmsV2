@@ -27,9 +27,12 @@
       <hr />
       <!-- Second Row -->
       <div class="row">
-        <div class="col-md-10 offset-1 ">
-          <div class="row d-flex justify-content-between">
-            <Card />
+        <div class="col-md-10 offset-1">
+          <div class="d-flex flex-wrap">
+            <div v-for="(recently,index) in recentlyPosted" :key="index">
+              <Card :data="recently" />
+            </div>
+            
           </div>
         </div>
       </div>
@@ -49,7 +52,6 @@
           </router-link>
         </div>
       </div>
-
     </div>
 
     <hr />
@@ -61,15 +63,24 @@
 <script>
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {mapActions, mapState } from 'vuex'
 export default {
   name: "Home",
   components: {
     Navbar,
     Footer,
   },
-  mounted() {
-    this.$store.dispatch("getRecentlyPosted");
-    this.$store.dispatch("getJobPostintConfirmation");
+
+  created(){
+    this.getRecentlyPosted();
   },
+
+  methods:{
+    ...mapActions(["getRecentlyPosted"])
+  },
+  computed: {
+   ...mapState(["recentlyPosted"]),
+
+  }
 };
 </script>

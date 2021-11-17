@@ -1,28 +1,45 @@
 <template>
+<div>
   <Navbar />
   <div class="container">
     <h1>Candidates</h1>
     <hr />
-     <div class="d-flex align-items-stretch flex-wrap">
-        <ImageCard />
+    <div class="row">
+      <div class="col">
+       <div class="d-flex flex-wrap">
+       <div v-for="(user,index) in cvDetails" :key="index">
+         <ImageCard :user="user" />
+       </div>
     </div>
-  </div>
+    </div>
+    </div>
+ 
   <hr />
-  <ul>
+  <!-- <ul>
     <li v-for="(u,index) in usersLogIn" :key="index">
       {{u}}
     </li>
-  </ul>
+  </ul> -->
+   </div>
   <Footer />
+  </div>
 </template>
 <script>
 
+import {mapState,mapActions} from "vuex"
 export default {
 
-     mounted() {
-        this.$store.dispatch("getCvDetails")
-        this.$store.dispatch("getUsers")
+  created(){
+    this.getCvDetails();
+  },
+
+
+    methods:{
+    ...mapActions(["getCvDetails"])
     },
+   computed: {
+     ...mapState(["cvDetails",]),
+    }
 
 }
 </script>

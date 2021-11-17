@@ -1,9 +1,7 @@
 <template>
-  <div>
+  
     <div
-      class="col-6"
-      v-for="employer in confirmedEmployers"
-      :key="employer.id"
+      class="card border-dark m-3" style="width: 30rem;"
     >
       <div
         @click="goDetails(employer)"
@@ -22,20 +20,17 @@
         </div>
       </div>
     </div>
-  </div>
+ 
 </template>
 
 <script>
 export default {
+  props:["employer"],
   methods: {
     goDetails(employer) {
       this.$store.state.employerDetail = employer;
     },
   },
-  computed: {
-    confirmedEmployers() {
-      return this.$store.state.confirmedEmployers;
-    },
-  },
+
 };
 </script>

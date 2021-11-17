@@ -1,19 +1,28 @@
 <template>
- 
-  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
-  style="width:170px; height:40px;">
-   {{this.title}}
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li v-for="d in data" :key="d.id"><p class="dropdown-item">{{d.data}}</p></li>
-   
-  </ul>
-</div>
+  <div>
+    <select
+      v-model="selectedItem"
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option>{{ title }}</option>
+      <option v-for="(d, index) in data" :key="index" :value="d.data">{{
+        d.data
+      }}</option>
+    </select>
+    <div v-for="(s, index) in selectedItems" :key="index">
+      {{ selectedItem }}
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ["data","title"]
-}
+  data() {
+    return {
+      selectedItem : ""
+    };
+  },
+  props: ["data", "title"],
+};
 </script>

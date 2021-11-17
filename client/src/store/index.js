@@ -68,11 +68,13 @@ const store = createStore({
     },
 
     getCvDetails({ commit }) {
+      console.log("get cv daetils")
       axios
         .get(
           `http://localhost:8080/api/resumes/getAllResumesDetailsByActivatedCandidate`
         )
         .then((response) => {
+          console.log(response.data.data)
           commit("setCvDetails", response.data.data);
         });
     },
@@ -87,6 +89,7 @@ const store = createStore({
           `http://localhost:8080/api/employers/getAllByIsConfirmedAndUserConfirmationTypeIdSortedByCompanyName?isConfirmed=${params.status}&userConfirmationTypeId=${params.id}`
         )
         .then((response) => {
+          console.log(response.data.data)
           commit("setConfirmedEmployers", response.data.data);
         });
     },
@@ -152,16 +155,15 @@ const store = createStore({
       });
     },
 
-    _jobTitleFilter: (state) => {
+    jobTitleFilter: (state) => {
       return state.jobTitles.data.map((jobTitle)=>{
-        console.log(jobTitle)
         return {
           id:jobTitle.id,
           data:jobTitle.title,
         };
       });
     },
-    _cityFilter: (state) => {
+    cityFilter: (state) => {
       return state.cities.data.map((city)=>{
         return {
           id:city.id,
@@ -169,7 +171,7 @@ const store = createStore({
         };
       });
     },
-    _workingTimeFilter: (state) => {
+    workingTimeFilter: (state) => {
       return state.workingTimes.data.map((workingTime)=>{
         return {
           id:workingTime.id,
@@ -177,7 +179,7 @@ const store = createStore({
         };
       });
     },
-    _workingTypeFilter: (state) => {
+    workingTypeFilter: (state) => {
       return state.workingTypes.data.map((workingType)=>{
         return {
             id:workingType.id,
