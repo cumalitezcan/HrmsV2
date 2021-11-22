@@ -26,7 +26,7 @@
 </template>
 <script>
 
-import {mapState,mapActions} from "vuex"
+import {mapState,mapActions, mapGetters} from "vuex"
 export default {
 
   created(){
@@ -39,6 +39,7 @@ export default {
     },
    computed: {
      ...mapState(["cvDetails",]),
+    //  ...mapGetters(["userExperiences"])
     }
 
 }

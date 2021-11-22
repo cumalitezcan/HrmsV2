@@ -1,5 +1,4 @@
 <template>
-  
     <div
       class="card border-dark m-3" style="width: 30rem;"
     >
@@ -20,7 +19,6 @@
         </div>
       </div>
     </div>
- 
 </template>
 
 <script>

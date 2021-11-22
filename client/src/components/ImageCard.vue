@@ -1,7 +1,5 @@
 <template>
-  <div class="card border-dark m-3" style="width: 18rem;"
-   
-  >
+  <div class="card border-dark m-3" style="width: 18rem;">
     <div v-if="user.image !== null">
       <img :src="user.image.url" class="card-img-top" alt="resim1" />
     </div>
@@ -15,42 +13,31 @@
 
     <div class="card-body">
       <h5>{{ user.candidate.firstName + " " }}{{ user.candidate.lastName }}</h5>
-
-      <div
-        v-for="job in user.experiences"
-        :key="job.id"
-        class="card"
-      
-      >
-
-      <div v-if="job.jobTitle.title != null & job.id != null">
-      <p class="card-text">{{job.jobTitle.title}} </p>
-    </div>
-    <div v-else>
-       <p class="card-text">Bilgi Girişi Yapılmamış</p>
-    </div>
-
-     <!-- <p class="card-text">  {{job.jobTitle.title !== null || job.jobTitle.title !== undefined ? job.jobTitle.title : 'yok'}}   </p> -->
+      <div v-if="user.experiences.length > 0">
+        <p class="card-text">{{ user.experiences[0].jobTitle.title }}</p>
       </div>
 
-      <div class="text-center mt-2">
-         <a class="me-2" style="color: #171515 ;" href="#!" role="button"
-          ><i class="fab fa-github fa-2x"></i
-        ></a>
-
-        <a style="color: #0077b5;" href="#!" role="button"
-          ><i class="fab fa-linkedin fa-2x"></i
-        ></a>
+      <div v-else>
+        <p class="card-text">Bilgi Girişi Yapılmamış</p>
       </div>
-     
+
+      <!-- <p class="card-text">  {{job.jobTitle.title !== null || job.jobTitle.title !== undefined ? job.jobTitle.title : 'yok'}}   </p> -->
+    </div>
+
+    <div class="text-center mt-2">
+      <a class="me-2" style="color: #171515 ;" href="#!" role="button"
+        ><i class="fab fa-github fa-2x"></i
+      ></a>
+
+      <a style="color: #0077b5;" href="#!" role="button"
+        ><i class="fab fa-linkedin fa-2x"></i
+      ></a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props:["user"],
- 
-  }
-
+  props: ["user"],
+};
 </script>

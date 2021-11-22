@@ -13,13 +13,13 @@
           <h3>{{ user.employer.phoneNumber }}</h3>
         </div>
         <div>
-          <button>Make passive</button>
-          <button>Add Favorites</button>
+          <button class="btn btn-danger me-1">Make passive</button>
+          <button class="btn btn-success">Add Favorites</button>
         </div>
       </div>
       <hr />
       <div>
-        <p>
+        <p class="text-primary">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim diam
           vulputate ut pharetra. Eu scelerisque felis imperdiet proin fermentum

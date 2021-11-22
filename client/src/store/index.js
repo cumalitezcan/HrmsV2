@@ -196,7 +196,16 @@ const store = createStore({
           fifty:state.jobPostingConfirmations.slice(0,50),
           onehundred:state.jobPostingConfirmations.slice(0,100),
         }
-    }
+    },
+
+    // userExperiences: (state) => {
+    //   return state.cvDetails.experiences[0].jobTitle.map((user)=>{
+    //     return {
+    //         id:user.id,
+    //         title:user.title
+    //     }
+    //   })
+    // },
 
 
     // _CandidateFilter: (state) => {

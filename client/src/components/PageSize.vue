@@ -46,7 +46,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-// import Pages from "@/components/Pages";
 import JobCard from "@/components/JobCard";
 export default {
   name:"PageSize",
@@ -56,7 +55,6 @@ export default {
   //   }
   // },
   components: {
-    // Pages,
     JobCard
   },
 
