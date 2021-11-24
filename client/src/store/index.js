@@ -15,7 +15,7 @@ const store = createStore({
     recentlyPosted: [],
     jobPostintConfirmation: null,
     employerDetail : null,
-    tempJobPosting: []
+    jobPostingsByPage: []
   },
 
   mutations: {
@@ -54,10 +54,10 @@ const store = createStore({
     setJobPostintConfirmation(state, jobPostintConfirmation) {
       state.jobPostintConfirmation = jobPostintConfirmation;
     },
+    setJobPostintByPageNoAndSize(state,payload){
+      state.jobPostingsByPage = payload
+    },
 
-    setTempJobPosting(state,jobPostings){
-      state.tempJobPosting = jobPostings
-    }
   },
 
   actions: {
@@ -143,6 +143,15 @@ const store = createStore({
           commit("setJobPostintConfirmation", response.data.data);
         });
     },
+    getJobPostintByPageNoAndSize({ commit },pageNo,pageSize) {
+      axios
+        .get(`http://localhost:8080/api/jobPostings/getAllActiveOnesByPageSortedByPostingDate?pageNo=${pageNo}&pageSize=${pageSize}`)
+        .then((response) => {
+          commit("setJobPostintByPageNoAndSize", response.data.data);
+        });
+    },
+
+
   },
 
   getters: {

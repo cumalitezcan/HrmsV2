@@ -101,6 +101,8 @@ export default {
     this.getWorkingTimes();
 
     this.getWorkingTypes();
+
+    
   },
 
   methods: {
@@ -110,6 +112,7 @@ export default {
       "getCities",
       "getWorkingTimes",
       "getWorkingTypes",
+      "getJobPostintByPageNoAndSize"
     ]),
     getClick(clicked) {
       this.showData = clicked;
