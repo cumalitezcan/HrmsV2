@@ -6,28 +6,28 @@
       </div>
       <div class="btn-group me-2" role="group" aria-label="First group">
         <button
-          @click="getData({ size: 10, count: 'ten', clicked: false })"
+          @click="getData({ size: 10,  clicked: false })"
           type="button"
           class="btn btn-dark rounded-circle"
         >
           10
         </button>
         <button
-          @click="getData({ size: 20, count: 'twenty', clicked: false })"
+          @click="getData({ size: 20, clicked: false })"
           type="button"
           class="btn btn-dark rounded-circle"
         >
           20
         </button>
         <button
-          @click="getData({ size: 50, count: 'fifty', clicked: false })"
+          @click="getData({ size: 50,  clicked: false })"
           type="button"
           class="btn btn-dark rounded-circle"
         >
           50
         </button>
         <button
-          @click="getData({ size: 100, count: 'onehundred', clicked: false })"
+          @click="getData({ size: 100, clicked: false })"
           type="button"
           class="btn btn-dark rounded-circle"
         >
@@ -37,14 +37,14 @@
         <div>
           <nav aria-label="Page navigation example">
             <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
+              <li @click="decrement" class="page-item">
+                <a class="page-link" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">{{lastSize}}</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
+              <li class="page-item"><a class="page-link" href="#">{{pageNumber}}/{{lastSize}}</a></li>
+              <li @click="increment" class="page-item">
+                <a class="page-link"  aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>
                 </a>
               </li>
@@ -53,50 +53,53 @@
         </div>
       </div>
     </div>
+
     <div class="d-flex flex-wrap">
-      <div v-for="(jobPosting, index) in selectedJobPostings" :key="index">
+      <div v-for="(jobPosting, index) in jobPostingsByPage" :key="index">
         <JobCard :jobPosting="jobPosting" />
       </div>
     </div>
-    <div></div>
   </div>
 </template>
 
 <script>
-import { mapGetters,mapState } from "vuex";
+import { mapState,mapActions } from "vuex";
 import JobCard from "@/components/JobCard";
 export default {
   name: "PageSize",
   components: {
     JobCard,
   },
-
+  props:["length"],
   data() {
     return {
       size: 10,
       selectedJobPostings: [],
       pageNumber:1,
-      lastSize:1,
-      dataLength : this.jobPostingConfirmations.lenghth
+      lastSize:5,
+      
     };
   },
 
   methods: {
-    getData({ size, count, clicked }) {
+     ...mapActions([
+      "getJobPostingByPageNoAndSize"]),
+    getData({ size, clicked }) {
+      console.log(size,clicked)
       this.$emit("getClick", clicked);
       this.size = size;
-      this.selectedJobPostings = this.jobPostingsBySize[count];
+      this.lastSize = Math.ceil(this.length/size)
+
+    },
+     increment(){
+      return this.pageNumber<this.lastSize ? this.pageNumber++ : ''
+    },
+    decrement(){
+      return this.pageNumber>1 ? this.pageNumber-- : ''
     },
   },
   computed: {
-    ...mapState(["jobPostingConfirmations"]),
-    ...mapGetters(["jobPostingsBySize"]),
-    pages(){
-      
-      for(i=this.size;i<=this.dataLength;i+=this.size){
-        this.lastSize++
-      }
-    }
-  },
-};
+    ...mapState(["jobPostingsByPage"]),
+  }
+}
 </script>

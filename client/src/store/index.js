@@ -54,7 +54,7 @@ const store = createStore({
     setJobPostintConfirmation(state, jobPostintConfirmation) {
       state.jobPostintConfirmation = jobPostintConfirmation;
     },
-    setJobPostintByPageNoAndSize(state,payload){
+    setJobPostingByPageNoAndSize(state,payload){
       state.jobPostingsByPage = payload
     },
 
@@ -143,14 +143,14 @@ const store = createStore({
           commit("setJobPostintConfirmation", response.data.data);
         });
     },
-    getJobPostintByPageNoAndSize({ commit },pageNo,pageSize) {
+    getJobPostingByPageNoAndSize({ commit},{pageNo,pageSize}) {
       axios
         .get(`http://localhost:8080/api/jobPostings/getAllActiveOnesByPageSortedByPostingDate?pageNo=${pageNo}&pageSize=${pageSize}`)
         .then((response) => {
-          commit("setJobPostintByPageNoAndSize", response.data.data);
+          console.log("action")
+          commit("setJobPostingByPageNoAndSize", response.data.data);
         });
     },
-
 
   },
 
@@ -196,16 +196,18 @@ const store = createStore({
         }
       })
     },
+    jobPostingLength: (state) => state.jobPostingConfirmations.length 
+ 
     
 
-    jobPostingsBySize: (state) => {
-        return {
-          ten:state.jobPostingConfirmations.slice(0,10),
-          twenty:state.jobPostingConfirmations.slice(0,20),
-          fifty:state.jobPostingConfirmations.slice(0,50),
-          onehundred:state.jobPostingConfirmations.slice(0,100),
-        }
-    },
+    // jobPostingsBySize: (state) => {
+    //     return {
+    //       ten:state.jobPostingConfirmations.slice(0,10),
+    //       twenty:state.jobPostingConfirmations.slice(0,20),
+    //       fifty:state.jobPostingConfirmations.slice(0,50),
+    //       onehundred:state.jobPostingConfirmations.slice(0,100),
+    //     }
+    // },
 
     // userExperiences: (state) => {
     //   return state.cvDetails.experiences[0].jobTitle.map((user)=>{

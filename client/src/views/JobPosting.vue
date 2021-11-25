@@ -4,22 +4,16 @@
     <div class="container">
       <h1>Job Posting</h1>
       <hr />
-      <div class="row">
+      <div class="row"> 
         <div class="col-md-8">
           <div class="row">
-            <PageSize @getClick="getClick" />
-          </div>
-          <div v-if="showData" class="d-flex flex-row flex-wrap">
-            <div
-              v-for="(jobPosting, index) in jobPostingsBySize.ten"
-              :key="index"
-            >
-              <JobCard :jobPosting="jobPosting" />
-            </div>
+           
+            <PageSize :length="this.jobPostingLength" />
+         
           </div>
         </div>
 
-        <div class="col-md-4 mt-3">
+         <div class="col-md-4 mt-3">
           <h2>Filter Bölümü</h2>
           <div class="d-flex flex-column">
             <Dropdown
@@ -74,7 +68,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions,mapState } from "vuex";
 import PageSize from "@/components/PageSize";
 import JobCard from "@/components/JobCard";
 export default {
@@ -92,6 +86,8 @@ export default {
   created() {
     console.log("job postingin created methodu");
 
+    this.getJobPostingByPageNoAndSize({pageNo:1,pageSize:10});
+    
     this.getJobPostingConfirmations();
 
     this.getJobTitles();
@@ -107,27 +103,36 @@ export default {
 
   methods: {
     ...mapActions([
+      "getJobPostingByPageNoAndSize",
       "getJobPostingConfirmations",
       "getJobTitles",
       "getCities",
       "getWorkingTimes",
       "getWorkingTypes",
-      "getJobPostintByPageNoAndSize"
     ]),
-    getClick(clicked) {
-      this.showData = clicked;
-    },
+  
   },
+
+  //1-10 2-10 2-20
+  //http://localhost:8080/api/jobPostings/getAllActiveOnesByPageSortedByPostingDate?pageNo=1&pageSize=10
+
+
+  //filters
+  //http://localhost:8080/api/jobPostings/getAllActiveOnesFilteredByCityAndJobTitleAndWorkingTimeAndWorkingType?cityId=1&jobTitleId=0&workingTimeId=0&workingTypeId=0
+
+  //genel
+  //http://localhost:8080/api/jobPostings/getAllActiveOnesByPageFilteredByCityAndJobTitleAndWorkingTimeAndWorkingType?cityId=1&jobTitleId=0&pageNo=2&pageSize=10&workingTimeId=0&workingTypeId=0
+
 
   computed: {
     ...mapGetters([
-      "jobPostingsBySize",
       "jobTitleFilter",
       "cityFilter",
       "workingTimeFilter",
       "workingTypeFilter",
+      "jobPostingLength"
     ]),
-    // ...mapState(["jobPostingConfirmations"]),
+    ...mapState(["jobPostingsByPage"]),
     // jobTitleFilter: "_jobTitleFilter",
     // cityFilter: "_cityFilter",
     // workingTimeFilter: "_workingTimeFilter",
