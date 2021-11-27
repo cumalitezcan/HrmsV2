@@ -1,4 +1,16 @@
-# client
+## HRMS - Frontend
+Human Resource Management System with Vue Js (Vue3 - Options Api)
+
+### Techniques
+
+ - Components
+ - Props
+ - Emits
+ - Vue Router
+ - Vuex
+ - Vuelidate
+ - Axios
+ - Service
 
 ## Project setup
 ```
