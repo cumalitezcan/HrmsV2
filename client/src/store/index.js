@@ -11,8 +11,13 @@ const store = createStore({
     workingTimes: [],
     workingTypes: [],
     jobPostingConfirmations: [],
+
+    //home2
     jobPosting : null ,
+
+    //home1
     recentlyPosted: [],
+
     jobPostintConfirmation: null,
     employerDetail : null,
     jobPostingsByPage: []
@@ -29,31 +34,39 @@ const store = createStore({
     setConfirmedEmployers(state, confirmedEmployers) {
       state.confirmedEmployers = confirmedEmployers;
     },
+
+    //jobPosting 1
     setCities(state, cities) {
       state.cities = cities;
     },
 
+    //jobPosting 2
     setJobTitles(state, jobTitles) {
       state.jobTitles = jobTitles;
     },
+    //jobPosting 3
     setWorkingTimes(state, workingTimes) {
       state.workingTimes = workingTimes;
     },
+    //jobPosting 4
     setWorkingTypes(state, workingTypes) {
       state.workingTypes = workingTypes;
     },
+    //jobPosting 5
     setJobPostingConfirmations(state, jobPostingConfirmations) {
       state.jobPostingConfirmations = jobPostingConfirmations;
     },
+    
     setJobPostingById(state, jobPosting) {
       state.jobPosting = jobPosting;
     },
+    
+    //home page1
     setRecentlyPosted(state, recentlyPosted) {
       state.recentlyPosted = recentlyPosted;
     },
-    setJobPostintConfirmation(state, jobPostintConfirmation) {
-      state.jobPostintConfirmation = jobPostintConfirmation;
-    },
+   
+    //job posting 6
     setJobPostingByPageNoAndSize(state,payload){
       state.jobPostingsByPage = payload
     },
@@ -78,11 +91,15 @@ const store = createStore({
           commit("setCvDetails", response.data.data);
         });
     },
+
+    //jobPosting 1
     getCities({ commit }) {
       axios.get(`http://localhost:8080/api/cities/getAll`).then((response) => {
         commit("setCities", response.data);
       });
     },
+
+
     getConfirmedEmployers({ commit }, params) {
       axios
         .get(
@@ -94,6 +111,7 @@ const store = createStore({
         });
     },
 
+    //jobPosting 2
     getJobTitles({ commit }) {
       axios
         .get(`http://localhost:8080/api/jobTitles/getAll`)
@@ -101,6 +119,8 @@ const store = createStore({
           commit("setJobTitles", response.data);
         });
     },
+
+    //jobPosting 3
     getWorkingTimes({ commit }) {
       axios
         .get(`http://localhost:8080/api/workingTimes/getAll`)
@@ -108,6 +128,8 @@ const store = createStore({
           commit("setWorkingTimes", response.data);
         });
     },
+
+    //jobPosting 4
     getWorkingTypes({ commit }) {
       axios
         .get(`http://localhost:8080/api/workingTypes/getAll`)
@@ -115,6 +137,8 @@ const store = createStore({
           commit("setWorkingTypes", response.data);
         });
     },
+
+
     getJobPostingConfirmations({ commit }) {
       axios
         .get(`http://localhost:8080/api/jobPostings/getAllByIsActive?isActive=true`)
@@ -129,6 +153,8 @@ const store = createStore({
           commit("setJobPostingById", response.data.data);
         });
     },
+
+    //home page 1
     getRecentlyPosted({ commit }) {
       axios
         .get(`http://localhost:8080/api/jobPostings/getAllActiveOnesSortedByPostingDateTop6`)
@@ -136,18 +162,13 @@ const store = createStore({
           commit("setRecentlyPosted", response.data.data);
         });
     },
-    getJobPostintConfirmation({ commit },id) {
-      axios
-        .get(`http://localhost:8080/api/jobPostingConfirmations/getById?id=${id}`)
-        .then((response) => {
-          commit("setJobPostintConfirmation", response.data.data);
-        });
-    },
+    
     getJobPostingByPageNoAndSize({ commit},{pageNo,pageSize}) {
+      console.log(pageNo)
+      console.log(pageSize)
       axios
         .get(`http://localhost:8080/api/jobPostings/getAllActiveOnesByPageSortedByPostingDate?pageNo=${pageNo}&pageSize=${pageSize}`)
         .then((response) => {
-          console.log("action")
           commit("setJobPostingByPageNoAndSize", response.data.data);
         });
     },
@@ -172,8 +193,8 @@ const store = createStore({
         };
       });
     },
-    cityFilter: (state) => {
-      return state.cities.data.map((city)=>{
+   cityFilter: (state) => {
+    return state.cities.data.map((city)=>{
         return {
           id:city.id,
           data:city.city,
@@ -197,7 +218,8 @@ const store = createStore({
       })
     },
     jobPostingLength: (state) => state.jobPostingConfirmations.length 
- 
+    
+
     
 
     // jobPostingsBySize: (state) => {

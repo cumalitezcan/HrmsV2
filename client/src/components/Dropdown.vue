@@ -6,10 +6,9 @@
         class="form-select"
         aria-label="Default select example"
       >
-        <option>{{ title }}</option>
-        <option  v-for="(d, index) in data" :key="index" :value="d.id">{{
-          d.data
-        }}</option>
+        <option  v-for="(d, index) in data" :key="index" :value="d.id">
+          {{d.data}}
+        </option>
       </select>
       {{options}}
     </div>
@@ -23,7 +22,8 @@ export default {
       options: [],
     };
   },
-  props: ["data", "title"],
+  props: ["data"],
  
 };
 </script>
+

@@ -34,13 +34,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: ["data"],
 
   methods: {
-    sendJobPosting(u) {
-      this.$store.state.jobPosting = u;
+    sendJobPosting(data) {
+      this.jobPosting = data;
     },
   },
+   computed: {
+   ...mapState(["jobPosting"]),
+
+  }
 };
 </script>

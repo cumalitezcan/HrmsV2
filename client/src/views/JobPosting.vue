@@ -16,7 +16,10 @@
          <div class="col-md-4 mt-3">
           <h2>Filter Bölümü</h2>
           <div class="d-flex flex-column">
-            <Dropdown
+            <div v-for="(filter,index) in dataFilters" :key="index">
+              <Dropdown :data="filter" />
+            </div>
+            <!-- <Dropdown
               :data="jobTitleFilter"
               title="Job Title"
               class="mb-2 mt-3"
@@ -31,14 +34,14 @@
               :data="workingTypeFilter"
               title="Working Type"
               class="mb-2 mt-3"
-            />
+            /> -->
           </div>
           <div>
             <div>
-              <button class="btn btn-success">Getir</button>
+              <button class="btn btn-success button3">Getir</button>
             </div>
             <div class="mt-2">
-              <button class="btn btn-warning">Temizle</button>
+              <button class="btn btn-warning button3">Temizle</button>
             </div>
           </div>
         </div>
@@ -73,11 +76,6 @@ import PageSize from "@/components/PageSize";
 import JobCard from "@/components/JobCard";
 export default {
   name: "JobPosting",
-  data() {
-    return {
-      showData: true,
-    };
-  },
   components: {
     PageSize,
     JobCard,
@@ -97,9 +95,9 @@ export default {
     this.getWorkingTimes();
 
     this.getWorkingTypes();
-
-    
   },
+
+
 
   methods: {
     ...mapActions([
@@ -125,18 +123,22 @@ export default {
 
 
   computed: {
+    dataFilters(){
+      let dataFilters = []
+      dataFilters.push(this.$store.getters.jobTitleFilter)
+      dataFilters.push(this.$store.getters.cityFilter)
+      dataFilters.push(this.$store.getters.workingTimeFilter)
+      dataFilters.push(this.$store.getters.workingTypeFilter)
+      return dataFilters;
+    },
     ...mapGetters([
-      "jobTitleFilter",
-      "cityFilter",
-      "workingTimeFilter",
-      "workingTypeFilter",
       "jobPostingLength"
     ]),
     ...mapState(["jobPostingsByPage"]),
-    // jobTitleFilter: "_jobTitleFilter",
-    // cityFilter: "_cityFilter",
-    // workingTimeFilter: "_workingTimeFilter",
-    // workingTypeFilter: "_workingTypeFilter",
   },
 };
 </script>
+
+<style scoped>
+.button3 {width: 100%;}
+</style>
