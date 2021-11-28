@@ -6,7 +6,7 @@ This repository is intended to write an existing project with Vue js.
 
 Gif...
 
-:technologist: This repository includes the frontend of the car rental system. <br/>
+:technologist: This repository includes the frontend of the Human Resource Management System. <br/>
 
 :file_folder: To reach the project directly. :sunny: [Frontend](https://github.com/cumalitezcan/HrmsV2/tree/main/client) :sunny: 
 
