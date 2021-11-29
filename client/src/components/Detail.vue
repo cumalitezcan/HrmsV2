@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-md-6 offset-3">
       <div>
-        {{ user.postingDate }}
+        {{ jobPosting.postingDate }}
       </div>
       <div>
         <div>
-          <h1>{{ user.jobTitle.title }}</h1>
-          <h3>{{ user.employer.companyName }}</h3>
-          <h3>{{ user.employer.webAddress }}</h3>
-          <h3>{{ user.employer.email }}</h3>
-          <h3>{{ user.employer.phoneNumber }}</h3>
+          <h1>{{ jobPosting.jobTitle.title }}</h1>
+          <h3>{{ jobPosting.employer.companyName }}</h3>
+          <h3>{{ jobPosting.employer.webAddress }}</h3>
+          <h3>{{ jobPosting.employer.email }}</h3>
+          <h3>{{ jobPosting.employer.phoneNumber }}</h3>
         </div>
         <div>
           <button class="btn btn-danger me-1">Make passive</button>
@@ -35,17 +35,17 @@
           mollis aliquam. Id porta nibh venenatis cras sed felis eget.
         </p>
         <ul>
-          <li>City: {{ user.city.city }}</li>
-          <li>Working Time: {{ user.workingTime.time }}</li>
-          <li>Working Type: {{ user.workingType.type }}</li>
-          <li>Salary Min: {{ user.salaryMin }}</li>
-          <li>Salary Max: {{ user.salaryMax }}</li>
+          <li>City: {{ jobPosting.city.city }}</li>
+          <li>Working Time: {{ jobPosting.workingTime.time }}</li>
+          <li>Working Type: {{ jobPosting.workingType.type }}</li>
+          <li>Salary Min: {{ jobPosting.salaryMin }}</li>
+          <li>Salary Max: {{ jobPosting.salaryMax }}</li>
           <li>
             Number of Open Positions:
-            {{ user.numberOfOpenPositions }}
+            {{ jobPosting.numberOfOpenPositions }}
           </li>
         </ul>
-        <p>Closing Date {{ user.closingDate }}</p>
+        <p>Closing Date {{ jobPosting.closingDate }}</p>
       </div>
     </div>
   </div>
@@ -53,10 +53,7 @@
 
 <script>
 export default {
-  computed: {
-    user() {
-      return this.$store.state.jobPosting;
-    },
-  },
+  props:["jobPosting"],
+  
 };
 </script>

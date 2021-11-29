@@ -63,12 +63,14 @@
 <script>
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Card from "@/views/home/Card"
 import {mapActions, mapState } from 'vuex'
 export default {
-  name: "Home",
+  name: "home",
   components: {
     Navbar,
     Footer,
+    Card
   },
 
   created(){

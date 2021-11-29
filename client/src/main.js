@@ -6,7 +6,7 @@ import store from './store';
 
 import navbar from "@/components/Navbar";
 import footer from "@/components/Footer";
-import card from "@/components/Card";
+import card from "@/views/home/Card";
 import jobcard from "@/components/JobCard";
 import pagesize from "@/components/PageSize";
 import dropdown from "@/components/Dropdown";

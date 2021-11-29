@@ -1,4 +1,5 @@
 <template>
+    <div>
     <Navbar />
     <div class="container">
         <h1>About us</h1>
@@ -27,4 +28,14 @@ Generated 5 paragraphs, 498 words, 3286 bytes of Lorem Ipsum</p>
     </div>
     <hr />
     <Footer />
+    </div>
 </template>
+
+<style scoped>
+
+p {
+  font-family: "Times New Roman", Times, serif;
+  color: rgb(153, 81, 248);
+}
+
+</style>

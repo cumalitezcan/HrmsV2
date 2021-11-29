@@ -5,7 +5,7 @@ const routes = [
     {
         name:"HomePage",
         path:"/",
-        component:()=>import("@/views/Home")
+        component:()=>import('@/views/home')
     },
     {
         name:"LoginPage",

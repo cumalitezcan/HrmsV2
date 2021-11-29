@@ -17,36 +17,15 @@
           <h2>Filter Bölümü</h2>
           <div class="d-flex flex-column">
             <div v-for="(filter,index) in dataFilters" :key="index">
-              <Dropdown :data="filter" />
+              <Dropdown :data="filter" :index="index" />
             </div>
-            <!-- <Dropdown
-              :data="jobTitleFilter"
-              title="Job Title"
-              class="mb-2 mt-3"
-            />
-            <Dropdown :data="cityFilter" title="City" class="mb-2 mt-3" />
-            <Dropdown
-              :data="workingTimeFilter"
-              title="Working Time"
-              class="mb-2 mt-3"
-            />
-            <Dropdown
-              :data="workingTypeFilter"
-              title="Working Type"
-              class="mb-2 mt-3"
-            /> -->
-          </div>
-          <div>
-            <div>
-              <button class="btn btn-success button3">Getir</button>
-            </div>
-            <div class="mt-2">
-              <button class="btn btn-warning button3">Temizle</button>
-            </div>
+            <button class="btn btn-warning d-grid gap-2 col-5 mb-2">Clear</button>
+            <button class="btn btn-light d-grid gap-2 col-5 mb-2 border"> Submit </button>
           </div>
         </div>
       </div>
     </div>
+
     <!-- <div class="row d-flex justify-content-center">
       <div class="col-md-6 offset-1">
         <div class="row d-flex justify-content-between ">
@@ -81,6 +60,7 @@ export default {
     JobCard,
   },
 
+
   created() {
     console.log("job postingin created methodu");
 
@@ -108,7 +88,7 @@ export default {
       "getWorkingTimes",
       "getWorkingTypes",
     ]),
-  
+
   },
 
   //1-10 2-10 2-20

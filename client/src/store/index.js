@@ -11,6 +11,13 @@ const store = createStore({
     workingTimes: [],
     workingTypes: [],
     jobPostingConfirmations: [],
+    filter:[
+      0,
+      0,
+      0,
+      0,
+    ],
+
 
     //home2
     jobPosting : null ,
@@ -26,6 +33,10 @@ const store = createStore({
   mutations: {
     setUsers(state, users) {
       state.users = users;
+    },
+
+    setFilters(state, filter){
+      state.filter.splice(filter.id,1,filter.value)
     },
 
     setCvDetails(state, cvDetails) {
@@ -134,7 +145,9 @@ const store = createStore({
       axios
         .get(`http://localhost:8080/api/workingTypes/getAll`)
         .then((response) => {
-          commit("setWorkingTypes", response.data);
+         response.data.data.unshift({id:0,type:"title"})
+         console.log(response.data.data)
+          commit("setWorkingTypes", response.data.data);
         });
     },
 
