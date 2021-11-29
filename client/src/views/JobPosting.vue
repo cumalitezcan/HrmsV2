@@ -5,44 +5,27 @@
       <h1>Job Posting</h1>
       <hr />
       <div class="row"> 
-        <div class="col-md-8">
+        <div class="col-md-7">
           <div class="row">
            
-            <PageSize :length="this.jobPostingLength" />
+            <PageSize v-if="selectedFilter" :length="this.jobPostingLength" />
+            <PageSize v-if="!selectedFilter" :length="this.jobPostingLength" />
          
           </div>
         </div>
 
-         <div class="col-md-4 mt-3">
-          <h2>Filter Bölümü</h2>
+         <div class="col-md-5 mt-3">
+          <h2 class="text-center text-secondary">Filters</h2>
           <div class="d-flex flex-column">
             <div v-for="(filter,index) in dataFilters" :key="index">
               <Dropdown :data="filter" :index="index" />
             </div>
-            <button class="btn btn-warning d-grid gap-2 col-5 mb-2">Clear</button>
-            <button class="btn btn-light d-grid gap-2 col-5 mb-2 border"> Submit </button>
+            <button class="btn btn-secondary mb-2 me-3">Clear Filter</button>
+            <button @click="getFilter" class="btn btn-warning mb-2 me-3">Filter</button>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <div class="row d-flex justify-content-center">
-      <div class="col-md-6 offset-1">
-        <div class="row d-flex justify-content-between ">
-          <JobCard m-2 />
-        </div>
-      </div>
-      <div class="col-md-4 offset-1 ">
-        <Dropdown :data="jobTitleFilter" title="Job Title" class="mb-2" />
-        <Dropdown :data="cityFilter" title="City" class="mb-2" />
-        <Dropdown :data="workingTimeFilter" title="Working Time" class="mb-2" />
-        <Dropdown :data="workingTypeFilter" title="Working Type" class="mb-2" />
-        <button class="btn btn-warning d-grid gap-2 col-5 mb-2">Filter</button>
-        <button class="btn btn-light d-grid gap-2 col-5 mb-2 border">
-          Clear
-        </button>
-      </div>
-    </div> -->
 
     <hr />
     <Footer />
@@ -58,6 +41,12 @@ export default {
   components: {
     PageSize,
     JobCard,
+  },
+
+  data(){
+    return{
+      selectFilter:false
+    }
   },
 
 
@@ -87,7 +76,13 @@ export default {
       "getCities",
       "getWorkingTimes",
       "getWorkingTypes",
+      "getJobPostingByFilters"
     ]),
+
+    getFilter(){
+      this.getJobPostingByFilters(this.filter);
+      this.jobPostingsByFilters;
+    },
 
   },
 
@@ -114,7 +109,7 @@ export default {
     ...mapGetters([
       "jobPostingLength"
     ]),
-    ...mapState(["jobPostingsByPage"]),
+    ...mapState(["jobPostingsByPage","filter","jobPostingsByFilters"]),
   },
 };
 </script>

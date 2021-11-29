@@ -11,13 +11,8 @@ const store = createStore({
     workingTimes: [],
     workingTypes: [],
     jobPostingConfirmations: [],
-    filter:[
-      0,
-      0,
-      0,
-      0,
-    ],
-
+    filter:[0,0,0,0,],
+      
 
     //home2
     jobPosting : null ,
@@ -27,7 +22,9 @@ const store = createStore({
 
     jobPostintConfirmation: null,
     employerDetail : null,
-    jobPostingsByPage: []
+    jobPostingsByPage: [],
+
+    jobPostingsByFilters:[]
   },
 
   mutations: {
@@ -36,6 +33,7 @@ const store = createStore({
     },
 
     setFilters(state, filter){
+      console.log(filter)
       state.filter.splice(filter.id,1,filter.value)
     },
 
@@ -82,6 +80,10 @@ const store = createStore({
       state.jobPostingsByPage = payload
     },
 
+    setJobPostingByFilters(state,payload){
+      state.jobPostingsByFilters = payload
+    },
+
   },
 
   actions: {
@@ -106,6 +108,7 @@ const store = createStore({
     //jobPosting 1
     getCities({ commit }) {
       axios.get(`http://localhost:8080/api/cities/getAll`).then((response) => {
+        response.data.data.unshift({id:0,city:"City"})
         commit("setCities", response.data);
       });
     },
@@ -117,7 +120,6 @@ const store = createStore({
           `http://localhost:8080/api/employers/getAllByIsConfirmedAndUserConfirmationTypeIdSortedByCompanyName?isConfirmed=${params.status}&userConfirmationTypeId=${params.id}`
         )
         .then((response) => {
-          console.log(response.data.data)
           commit("setConfirmedEmployers", response.data.data);
         });
     },
@@ -127,6 +129,7 @@ const store = createStore({
       axios
         .get(`http://localhost:8080/api/jobTitles/getAll`)
         .then((response) => {
+          response.data.data.unshift({id:0,title:"Job Title"})
           commit("setJobTitles", response.data);
         });
     },
@@ -136,6 +139,7 @@ const store = createStore({
       axios
         .get(`http://localhost:8080/api/workingTimes/getAll`)
         .then((response) => {
+          response.data.data.unshift({id:0,time:"Working Time"})
           commit("setWorkingTimes", response.data);
         });
     },
@@ -145,9 +149,8 @@ const store = createStore({
       axios
         .get(`http://localhost:8080/api/workingTypes/getAll`)
         .then((response) => {
-         response.data.data.unshift({id:0,type:"title"})
-         console.log(response.data.data)
-          commit("setWorkingTypes", response.data.data);
+         response.data.data.unshift({id:0,type:"Working Type"})
+          commit("setWorkingTypes", response.data);
         });
     },
 
@@ -177,12 +180,23 @@ const store = createStore({
     },
     
     getJobPostingByPageNoAndSize({ commit},{pageNo,pageSize}) {
-      console.log(pageNo)
-      console.log(pageSize)
       axios
         .get(`http://localhost:8080/api/jobPostings/getAllActiveOnesByPageSortedByPostingDate?pageNo=${pageNo}&pageSize=${pageSize}`)
         .then((response) => {
           commit("setJobPostingByPageNoAndSize", response.data.data);
+        });
+    },
+
+    getJobPostingByFilters({ commit},payload) {
+      console.log("geldiax")
+      let [a,b,c,d] = [...payload]
+      axios
+        .get(`http://localhost:8080/api/jobPostings/getAllActiveOnesFilteredByCityAndJobTitleAndWorkingTimeAndWorkingType?cityId=${b}&jobTitleId=${a}&workingTimeId=${c}&workingTypeId=${d}`)
+        .then((response) => {
+          console.log("response")
+          console.log(response)
+          console.log("response")
+          commit("setJobPostingByFilters", response.data.data);
         });
     },
 
@@ -233,39 +247,6 @@ const store = createStore({
     jobPostingLength: (state) => state.jobPostingConfirmations.length 
     
 
-    
-
-    // jobPostingsBySize: (state) => {
-    //     return {
-    //       ten:state.jobPostingConfirmations.slice(0,10),
-    //       twenty:state.jobPostingConfirmations.slice(0,20),
-    //       fifty:state.jobPostingConfirmations.slice(0,50),
-    //       onehundred:state.jobPostingConfirmations.slice(0,100),
-    //     }
-    // },
-
-    // userExperiences: (state) => {
-    //   return state.cvDetails.experiences[0].jobTitle.map((user)=>{
-    //     return {
-    //         id:user.id,
-    //         title:user.title
-    //     }
-    //   })
-    // },
-
-
-    // _CandidateFilter: (state) => {
-    //   return state.cvDetails.data.map((candidate)=>{
-    //     return {
-    //       id:candidate.id,
-    //       experiences: candidate.experiences,
-    //       firstName:candidate.candidate.firstName,
-    //       lastName:candidate.candidate.lastName,
-    //       imageUrl:candidate.image.url,
-    //       links:candidate.links,
-    //     };
-    //   });
-    // },
 
     // getUsersLogIn : state => {
     //    const newList = state.users.map(user=>{
