@@ -199,9 +199,7 @@ const store = createStore({
           commit("setJobPostingByFilters", response.data.data);
         });
     },
-
   },
-
   getters: {
     getUsersLogIn: (state) => {
       return state.users.map((user) => {
