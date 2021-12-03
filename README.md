@@ -8,7 +8,9 @@ Gif...
 
 :technologist: This repository includes the frontend of the Human Resource Management System. <br/>
 
-:file_folder: To reach the project directly. :sunny: [Frontend](https://github.com/cumalitezcan/HrmsV2/tree/main/client) :sunny: 
+:file_folder: fast access. :sunny: [Frontend](https://github.com/cumalitezcan/HrmsV2/tree/main/client) :sunny:
+
+:file_folder: to contribute to the project. :sunny: [Backend](https://github.com/merveucer/hrms-backend) :sunny:
 
 ## :tada: Getting Started
 
