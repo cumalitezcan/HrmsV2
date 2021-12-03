@@ -55,8 +55,13 @@
       </div>
     </div>
 
-    <div class="d-flex flex-wrap">
-      <div v-for="(jobPosting, index) in jobPostingsByPage" :key="index">
+    <div v-if="this.selectFilter" class="d-flex flex-wrap">
+      <div  v-for="(jobPosting, index) in jobPostingsByPage" :key="index">
+        <JobCard :jobPosting="jobPosting" />
+      </div>
+    </div>
+    <div v-else class="d-flex flex-wrap">
+      <div  v-for="(jobPosting, index) in jobPostingsByFilters" :key="index">
         <JobCard :jobPosting="jobPosting" />
       </div>
     </div>
@@ -65,13 +70,13 @@
 
 <script>
 import { mapState,mapActions } from "vuex";
-import JobCard from "@/components/JobCard";
+import JobCard from "@/views/job-posting/JobCard";
 export default {
   name: "PageSize",
   components: {
     JobCard,
   },
-  props:["length"],
+  props:["length","selectFilter"],
   data() {
     return {
       size: 10,
@@ -103,7 +108,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["jobPostingsByPage"]),
+    ...mapState(["jobPostingsByPage","jobPostingsByFilters"]),
   },
   watch:{
     pageNumber(last){

@@ -16,7 +16,7 @@ const routes = [
     {
         name:"JobPostingPage",
         path:"/jobPostings",
-        component:()=>import("@/views/JobPosting")
+        component:()=>import('@/views/job-posting')
     },
     {
         name:"CandidatePage",

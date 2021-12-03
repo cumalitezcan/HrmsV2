@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div class="job-posting">
     <Navbar />
     <div class="container">
       <h1>Job Posting</h1>
       <hr />
       <div class="row"> 
         <div class="col-md-7">
-          <div class="row">
-           
-            <PageSize v-if="selectedFilter" :length="this.jobPostingLength" />
-            <PageSize v-if="!selectedFilter" :length="this.jobPostingLength" />
-         
+          <div v-if="selectFilter" class="row">
+            <PageSize :selectFilter="selectFilter" :length="this.jobPostingLength" />
+          </div>
+          <div v-else class="row">
+             <PageSize :selectFilter="selectFilter" :length="this.jobPostingsByFilters.length" />
           </div>
         </div>
 
@@ -20,7 +20,7 @@
             <div v-for="(filter,index) in dataFilters" :key="index">
               <Dropdown :data="filter" :index="index" />
             </div>
-            <button class="btn btn-secondary mb-2 me-3">Clear Filter</button>
+            <button @click="clearFilter" class="btn btn-secondary mb-2 me-3">Clear Filter</button>
             <button @click="getFilter" class="btn btn-warning mb-2 me-3">Filter</button>
           </div>
         </div>
@@ -34,8 +34,8 @@
 
 <script>
 import { mapGetters, mapActions,mapState } from "vuex";
-import PageSize from "@/components/PageSize";
-import JobCard from "@/components/JobCard";
+import PageSize from "@/views/job-posting/PageSize";
+import JobCard from "@/views/job-posting/JobCard";
 export default {
   name: "JobPosting",
   components: {
@@ -45,7 +45,7 @@ export default {
 
   data(){
     return{
-      selectFilter:false
+      selectFilter:true
     }
   },
 
@@ -81,8 +81,13 @@ export default {
 
     getFilter(){
       this.getJobPostingByFilters(this.filter);
-      this.jobPostingsByFilters;
+      this.selectFilter = false
+
     },
+
+    clearFilter(){
+      this.selectFilter = true;
+    }
 
   },
 

@@ -193,9 +193,6 @@ const store = createStore({
       axios
         .get(`http://localhost:8080/api/jobPostings/getAllActiveOnesFilteredByCityAndJobTitleAndWorkingTimeAndWorkingType?cityId=${b}&jobTitleId=${a}&workingTimeId=${c}&workingTypeId=${d}`)
         .then((response) => {
-          console.log("response")
-          console.log(response)
-          console.log("response")
           commit("setJobPostingByFilters", response.data.data);
         });
     },
