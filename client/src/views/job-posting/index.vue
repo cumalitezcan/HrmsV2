@@ -10,7 +10,7 @@
             <PageSize :selectFilter="selectFilter" :length="this.jobPostingLength" />
           </div>
           <div v-else class="row">
-             <PageSize :selectFilter="selectFilter" :length="this.jobPostingsByFilters.length" />
+             <PageSize :selectFilter="selectFilter" />
           </div>
         </div>
 
@@ -80,9 +80,10 @@ export default {
     ]),
 
     getFilter(){
+      if(!this.filter.every(e=>e === 0)){
       this.getJobPostingByFilters(this.filter);
       this.selectFilter = false
-
+      }
     },
 
     clearFilter(){

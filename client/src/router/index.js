@@ -5,7 +5,7 @@ const routes = [
     {
         name:"HomePage",
         path:"/",
-        component:()=>import('@/views/home')
+        component:()=>import('@/views/home/index')
     },
     {
         name:"LoginPage",
@@ -16,22 +16,22 @@ const routes = [
     {
         name:"JobPostingPage",
         path:"/jobPostings",
-        component:()=>import('@/views/job-posting')
+        component:()=>import('@/views/job-posting/index')
     },
     {
         name:"CandidatePage",
         path:"/candidates",
-        component:()=>import("@/views/Candidate")
+        component:()=>import("@/views/candidate/index")
     },
     {
         name:"EmployerPage",
         path:"/employers",
-        component:()=>import("@/views/Employer")
+        component:()=>import('@/views/employer/index')
     },
     {
         name:"AboutPage",
         path:"/about",
-        component:()=>import("@/views/About")
+        component:()=>import('@/views/about')
     },
     {
         name:"JobPostingDetail",

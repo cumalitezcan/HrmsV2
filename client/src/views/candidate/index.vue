@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="candidate">
   <Navbar />
   <div class="container">
     <h1>Candidates</h1>
@@ -13,33 +13,26 @@
     </div>
     </div>
     </div>
- 
   <hr />
-  <!-- <ul>
-    <li v-for="(u,index) in usersLogIn" :key="index">
-      {{u}}
-    </li>
-  </ul> -->
    </div>
   <Footer />
   </div>
 </template>
-<script>
 
-import {mapState,mapActions, mapGetters} from "vuex"
+<script>
+import ImageCard from "@/views/candidate/ImageCard"
+import {mapState,mapActions} from "vuex"
 export default {
 
   created(){
     this.getCvDetails();
   },
 
-
     methods:{
     ...mapActions(["getCvDetails"])
     },
    computed: {
      ...mapState(["cvDetails",]),
-    //  ...mapGetters(["userExperiences"])
     }
 
 }

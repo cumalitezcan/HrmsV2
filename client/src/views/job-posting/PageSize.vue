@@ -80,7 +80,6 @@ export default {
   data() {
     return {
       size: 10,
-      selectedJobPostings: [],
       pageNumber:1,
       lastSize:5,
       
@@ -113,8 +112,18 @@ export default {
   watch:{
     pageNumber(last){
       this.getJobPostingByPageNoAndSize({pageNo:last,pageSize:this.size});
+    },
+  },
+
+  beforeUpdate() {
+    if(this.selectFilter==false){
+      console.log(this.lastSize)
+      console.log(this.jobPostingsByFilters.length)
+      console.log(this.size)
+      this.lastSize=Math.ceil(this.jobPostingsByFilters.length/this.size)
+      console.log(this.lastSize)
     }
-  }
+   }
 }
 </script>
 

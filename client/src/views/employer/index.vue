@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="employer">
     <Navbar />
     <div class="container">
       <h1>Employers</h1>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import EmployerBox from "@/components/EmployerBox.vue";
+import EmployerBox from "@/views/employer/EmployerBox";
 import { mapState, mapActions } from "vuex";
 const params = {
   status: true,

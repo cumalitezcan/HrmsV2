@@ -10,8 +10,8 @@ import card from "@/views/home/Card";
 import jobcard from "@/views/job-posting/JobCard";
 import pagesize from "@/views/job-posting/PageSize";
 import dropdown from "@/views/job-posting/Dropdown";
-import imagecard from "@/components/ImageCard";
-import employerbox from "@/components/EmployerBox";
+import imagecard from "@/views/candidate/ImageCard";
+import employerbox from "@/views/employer/EmployerBox";
 import detail from "@/components/Detail";
 import datetime from "@/components/DateTime";
 

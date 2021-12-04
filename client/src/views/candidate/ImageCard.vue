@@ -6,7 +6,7 @@
         </div>
         <div v-else>
           <img
-            src="../assets/defaultpicture.jpg"
+            src="../../assets/defaultpicture.jpg"
             class="card-img-top"
             alt="resim1"
           />
