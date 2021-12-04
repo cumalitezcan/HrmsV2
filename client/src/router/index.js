@@ -31,12 +31,17 @@ const routes = [
     {
         name:"AboutPage",
         path:"/about",
-        component:()=>import('@/views/about')
+        component:()=>import('@/views/about/index')
     },
     {
         name:"JobPostingDetail",
         path:"/jobPostings/jobPosting/:id",
-        component:()=>import("@/views/JobPostingDetail")
+        component:()=>import("@/views/job-posting-detail/index")
+    },
+    {
+        name:"CandidateDetail",
+        path:"/candidates/candidate/:id",
+        component:()=>import("@/views/candidate-detail/index")
     },
     {
         name:"RegisterCandidatePage",
@@ -51,7 +56,7 @@ const routes = [
     {
         name:"EmployerDetailPage",
         path:"/employers/employer/:id",
-        component:()=>import("@/views/EmployerDetail")
+        component:()=>import("@/views/employer-detail/index")
     },
 ]
 

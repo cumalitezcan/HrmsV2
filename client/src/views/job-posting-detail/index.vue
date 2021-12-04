@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="job-posting-detail">
     <Navbar />
     <hr />
     <div class="container">
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import Detail from "@/views/job-posting-detail/Detail"
 import { mapActions,mapState } from "vuex";
 export default {
     created(){

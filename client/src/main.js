@@ -12,7 +12,7 @@ import pagesize from "@/views/job-posting/PageSize";
 import dropdown from "@/views/job-posting/Dropdown";
 import imagecard from "@/views/candidate/ImageCard";
 import employerbox from "@/views/employer/EmployerBox";
-import detail from "@/components/Detail";
+import detail from "@/views/job-posting-detail/Detail";
 import datetime from "@/components/DateTime";
 
 

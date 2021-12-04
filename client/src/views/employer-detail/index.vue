@@ -1,4 +1,5 @@
 <template>
+    <div class="employer-detail">
     <Navbar />
     <div class="container">
         <h1>Employer Detail</h1>
@@ -11,4 +12,5 @@
     </div>
     <hr />
     <Footer />
+    </div>
 </template>
