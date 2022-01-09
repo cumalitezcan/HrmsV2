@@ -4,7 +4,7 @@ Human Resource Management System v2 with Spring Boot and Vue JS
 
 This repository is intended to write an existing project with Vue js.
 
-Gif...
+![HrmsV2](https://github.com/cumalitezcan/Task1/blob/main/gifs/Hrms1.gif)
 
 :technologist: This repository includes the frontend of the Human Resource Management System. <br/>
 
@@ -26,6 +26,11 @@ Gif...
 - Vuelidate
 - Axios
 - Service
+
+#### To Do
+- Candidate Detail and Employer Detail pages will be designed
+- Login and Register rules will be added
+- Admin user will be added
 
 ## Development server
 
