@@ -21,9 +21,10 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import i18n from './i18n'
 
 
-const app = createApp(App);
+const app = createApp(App)
 
 app.component("Navbar",navbar);
 app.component("Footer",footer);
@@ -38,6 +39,7 @@ app.component("DateTime",datetime);
 
 app.use(router);
 app.use(store);
+app.use(i18n);
 app.config.globalProperties.$appAxios = appAxios;
 
 app.mount('#app');

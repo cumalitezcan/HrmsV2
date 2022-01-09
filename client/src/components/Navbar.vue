@@ -12,27 +12,27 @@
           <ul class="navbar-nav">
             <router-link :to="{ name: 'HomePage' }">
               <li class="nav-item active me-2">
-                <a class="btn btn-outline-dark btn-rounded">Home</a>
+                <a class="btn btn-outline-dark btn-rounded">{{ $t('nav.home')}}</a>
               </li>
             </router-link>
             <router-link :to="{ name: 'JobPostingPage' }">
               <li class="nav-item me-2">
-                <a class="btn btn-outline-dark btn-rounded">Job Postings</a>
+                <a class="btn btn-outline-dark btn-rounded">{{ $t('nav.jobPostings')}}</a>
               </li>
             </router-link>
             <router-link :to="{ name: 'CandidatePage' }">
               <li class="nav-item me-2">
-                <a class="btn btn-outline-dark btn-rounded">Candidates</a>
+                <a class="btn btn-outline-dark btn-rounded">{{ $t('nav.candidates')}}</a>
               </li>
             </router-link>
             <router-link :to="{ name: 'EmployerPage' }">
               <li class="nav-item me-2">
-                <a class="btn btn-outline-dark btn-rounded">Employers</a>
+                <a class="btn btn-outline-dark btn-rounded">{{ $t('nav.employers')}}</a>
               </li>
             </router-link>
             <router-link :to="{ name: 'AboutPage' }">
               <li class="nav-item me-2">
-                <a class="btn btn-outline-dark btn-rounded">About Us</a>
+                <a class="btn btn-outline-dark btn-rounded">{{ $t('nav.aboutUs')}}</a>
               </li>
             </router-link>
           </ul>

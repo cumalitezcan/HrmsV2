@@ -1,0 +1,13 @@
+{
+  "jobMessage1": "Find a New",
+  "jobMessage2": "Job",
+  "nav":{
+    "home":"Home",
+    "jobPostings":"Job Postings",
+    "candidates":"Candidates",
+    "employers":"Employers",
+    "aboutUs":"About Us",
+    "login":"LogIn",
+    "register":"Register"
+  }
+}

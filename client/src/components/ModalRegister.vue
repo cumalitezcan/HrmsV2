@@ -7,7 +7,7 @@
       data-bs-toggle="modal"
       data-bs-target="#exampleModal2"
     >
-      Register
+      {{ $t('nav.register')}}
     </button>
 
     <!-- Modal -->

@@ -1,0 +1,13 @@
+{
+    "jobMessage1": "Yeni bir iş",
+    "jobMessage2": "Bul",
+    "nav":{
+        "home":"Anasayfa",
+        "jobPostings":"İş İlanları",
+        "candidates":"Adaylar",
+        "employers":"İşverenler",
+        "aboutUs":"Hakkımızda",
+        "login":"Giriş Yap",
+        "register":"Üye Ol"
+      }
+}

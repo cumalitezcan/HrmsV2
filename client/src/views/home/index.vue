@@ -13,12 +13,12 @@
             <h1
               class="mt-5 text-center display-2 fw-bold fst-italic text-primary"
             >
-              Find a new
+              {{ $t('jobMessage1')}}
             </h1>
           </div>
           <div>
             <h1 class="text-center display-1 fw-bold fst-italic text-primary">
-              Job
+              {{ $t('jobMessage2')}}
             </h1>
           </div>
         </div>

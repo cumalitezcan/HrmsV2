@@ -8,7 +8,7 @@
       data-bs-target="#exampleModal1"
       data-backdrop="false"
     >
-      LogIn
+      {{ $t('nav.login')}}
     </button>
 
     <div></div>
